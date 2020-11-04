@@ -257,6 +257,7 @@ export const AuthWrapper = styled.div`
           transition: opacity 0.2s ease;
 
           &:hover {
+            color: ${themeGet('color.0', '#ffffff')} !important;
             opacity: 0.9;
           }
         }

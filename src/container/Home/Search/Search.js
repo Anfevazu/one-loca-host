@@ -19,7 +19,7 @@ const SearchArea = ({ searchTitleStyle, searchDescriptionStyle }) => {
     <BannerWrapper>
       <GlideCarousel
         controls={false}
-        options={{ gap: 0, autoplay: 5000, animationDuration: 1000 }}
+        options={{ gap: 0, autoplay: 5000, animationDuration: 1500 }}
         bullets={true}
         numberOfBullets={4}
       >

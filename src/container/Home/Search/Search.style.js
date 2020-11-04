@@ -448,7 +448,7 @@ export const ComponentWrapper = styled.div`
     &.user-friends {
       left: 15px;
       right: auto;
-      fill: ${themeGet('primary.0', '#008489')};
+      fill: rgb(42 82 126) !important;
     }
 
     &.calendar {
