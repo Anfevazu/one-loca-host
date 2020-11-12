@@ -48,8 +48,8 @@ const LocationGrid = () => {
     <LocationWrapper>
       <Container fluid={true}>
         <SectionTitle
-          title={<Heading content="Explore Destinations" />}
-          link={<TextLink link={LISTING_POSTS_PAGE} content="Show all" />}
+          title={<Heading content="Destinos destacados" />}
+          link={<TextLink link={LISTING_POSTS_PAGE} content="Ver todos" />}
         />
 
         <CarouselSection>
@@ -67,7 +67,7 @@ const LocationGrid = () => {
                       link="listing"
                       imageSrc={post.locationImage.url}
                       title={post.city}
-                      meta={`${post.numberOfPost} Hotels`}
+                      meta={`${post.numberOfPost} Houst`}
                     />
                   </GlideSlide>
                 ))}

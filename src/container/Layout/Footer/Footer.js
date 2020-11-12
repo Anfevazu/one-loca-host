@@ -1,15 +1,18 @@
 import React from 'react';
-import Logo from 'components/UI/Logo/Logo';
 import Footers from 'components/Footer/Footer';
-import LogoImage from 'assets/images/logo-alt.svg';
+import LogoImage from 'assets/images/logo.png';
 import FooterMenu from './FooterMenu';
+
+const LogoIcon = () => (
+  <img src={LogoImage} alt="One Local Host" style={{width: "240px"}}/>
+);
 
 const Footer = () => {
   return (
     <Footers
-      logo={<Logo withLink linkTo="/" src={LogoImage} title="TripFinder." />}
+      logo={<LogoIcon />}
       menu={<FooterMenu />}
-      copyright={`Copyright @ ${new Date().getFullYear()} RedQ, Inc.`}
+      copyright={`Copyright @ ${new Date().getFullYear()} One Local Host.`}
     />
   );
 };

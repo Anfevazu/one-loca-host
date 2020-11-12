@@ -14,7 +14,6 @@ const TopHotelsGrid = () => {
 
   let posts = data;
   let limit;
-
   if (data && width <= 767) {
     posts = data.slice(0, 4);
     limit = 4;
@@ -35,7 +34,7 @@ const TopHotelsGrid = () => {
   return (
     <Container fluid={true}>
       <SectionTitle
-        title={<Heading content="Travelers’ Choice: Top hotels" />}
+        title={<Heading content="Mejores houst" />}
         link={<TextLink link={LISTING_POSTS_PAGE} content="Show all" />}
       />
 

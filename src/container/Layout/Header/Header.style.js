@@ -271,7 +271,6 @@ export const AvatarWrapper = styled.div`
 export const AvatarImage = styled.div`
   flex-shrink: 0;
   margin-right: 15px;
-
   img {
     width: 45px;
     height: 45px;
@@ -367,6 +366,7 @@ export const NavbarSearchWrapper = styled.div`
       right: 25px;
     }
   }
+
 `;
 
 export default HeaderWrapper;

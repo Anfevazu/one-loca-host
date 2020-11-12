@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { TopHotelsGrid, LuxaryHotelsGrid } from './Grid';
+import { TopHotelsGrid } from './Grid';
 import SearchArea from './Search/Search';
 import LocationGrid from './Location/Location';
 import { LayoutContext } from 'context/LayoutProvider';
@@ -16,7 +16,7 @@ const Home = () => {
       />
       <LocationGrid />
       <TopHotelsGrid />
-      <LuxaryHotelsGrid />
+
     </>
   );
 };

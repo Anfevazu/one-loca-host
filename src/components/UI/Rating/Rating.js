@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { IoIosStar, IoIosStarOutline } from 'react-icons/io';
+import logoWs from '../../../assets/images/icon-whatsapp.png';
+import { NavLink } from 'react-router-dom';
 
 const Rating = props => {
   const { rating, ratingCount, type, ratingFieldName } = props;
@@ -18,13 +20,13 @@ const Rating = props => {
   }
   let listingCondition;
   if (rating && rating === 5) {
-    listingCondition = 'Awesome';
+    listingCondition = 'Increible';
   } else if (4 <= rating && rating < 5) {
-    listingCondition = 'Good';
+    listingCondition = 'Bueno';
   } else if (3 <= rating && rating < 4) {
-    listingCondition = 'Average';
+    listingCondition = 'Promedio';
   } else if (2 <= rating && rating < 3) {
-    listingCondition = 'Bad';
+    listingCondition = 'Malo';
   } else if (rating >= 1) {
     listingCondition = 'Terrible';
   } else {
@@ -39,6 +41,7 @@ const Rating = props => {
   }
 
   return (
+    <div style={{'display': 'flex', width: '100%'}}>
     <>
       {type && type === 'bulk' ? (
         <>
@@ -52,7 +55,14 @@ const Rating = props => {
           <span>{ratingFieldName}</span> {ratingView}
         </>
       )}
+      <div style={{'margin-left': 'auto'}}>
+      <NavLink to="/">
+          <img src={logoWs} alt="Whatsapp-icon" />
+      </NavLink>
+
+      </div>
     </>
+    </div>
   );
 };
 

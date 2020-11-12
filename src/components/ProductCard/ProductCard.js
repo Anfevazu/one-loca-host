@@ -56,7 +56,7 @@ const PostGrid = ({
       }
       location={location.formattedAddress}
       title={<TextLink link={`${link}/${slug}`} content={title} />}
-      price={`$${price}/Night - Free Cancellation`}
+      price={"descripcion del man"}
       rating={<Rating rating={rating} ratingCount={ratingCount} type="bulk" />}
       viewDetailsBtn={
         <TextLink

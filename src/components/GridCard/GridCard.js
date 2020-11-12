@@ -12,6 +12,8 @@ import GridCardWrapper, {
   ButtonGroup,
 } from './GridCard.style';
 
+import HoustPicture from '../HoustPicture';
+
 const GridCard = ({
   className,
   favorite,
@@ -23,22 +25,15 @@ const GridCard = ({
   viewDetailsBtn,
   children,
 }) => {
-  let classes = viewDetailsBtn || editBtn ? `has_btn ${className}` : className;
   return (
-    <GridCardWrapper className={`grid_card ${classes}`.trim()}>
+    <GridCardWrapper className={`grid_card`}>
       <ImageWrapper className="media_wrapper">{children}</ImageWrapper>
       <ContentWrapper className="content_wrapper">
+      <HoustPicture/>
         {location && <LocationArea>{location}</LocationArea>}
-        {title && <TitleArea>{title}</TitleArea>}
         <MetaWrapper className="meta_wrapper">
-          {price && <PriceArea className="price">{price}</PriceArea>}
+          {price && <PriceArea className="price">Descipcion del man</PriceArea>}
           {rating && <RatingArea className="rating">{rating}</RatingArea>}
-          {viewDetailsBtn || editBtn ? (
-            <ButtonGroup className="button_group">
-              {viewDetailsBtn}
-              {editBtn}
-            </ButtonGroup>
-          ) : null}
         </MetaWrapper>
       </ContentWrapper>
 
