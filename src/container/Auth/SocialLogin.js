@@ -1,14 +1,15 @@
 import React, { useState, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 import { Row, Col, Button } from 'antd';
+import { InstagramOutlined, TwitterOutlined, FacebookFilled, GoogleOutlined} from '@ant-design/icons';
 import { AuthContext } from 'context/AuthProvider';
 
 const SocialLogin = () => {
   const { signUp, loggedIn } = useContext(AuthContext);
   const [state, setState] = useState({
     facebook: false,
-    github: false,
-    firebase: false,
+    instagram: false,
+    twitter: false,
     google: false,
   });
   const handleSocialAuth = (key) => {
@@ -39,34 +40,35 @@ const SocialLogin = () => {
             style={{ width: '100%', marginBottom: 16 }}
             size="large"
             onClick={() => handleSocialAuth('facebook')}
-          >
+            icon={<FacebookFilled />}>
             Facebook
           </Button>
         </Col>
         <Col span={12}>
           <Button
-            loading={state.github}
-            className="github-btn"
+            loading={state.instagram}
+            className="insta-btn"
             type="primary"
             style={{ width: '100%', marginBottom: 16 }}
             size="large"
-            onClick={() => handleSocialAuth('github')}
+            onClick={() => handleSocialAuth('instagram')}
+            icon={<InstagramOutlined />}
           >
-            Github
+            Instagram
           </Button>
         </Col>
       </Row>
       <Row gutter={16} style={{ marginBottom: '37px' }}>
         <Col span={12}>
           <Button
-            loading={state.firebase}
-            className="firebase-btn"
+            loading={state.twitter}
+            className="twitter-btn"
             type="primary"
             style={{ width: '100%', marginBottom: 16 }}
             size="large"
-            onClick={() => handleSocialAuth('firebase')}
-          >
-            Firebase
+            onClick={() => handleSocialAuth('twitter')}
+            icon={<TwitterOutlined />}>
+            Twitter
           </Button>
         </Col>
         <Col span={12}>
@@ -77,8 +79,9 @@ const SocialLogin = () => {
             style={{ width: '100%', marginBottom: 16 }}
             size="large"
             onClick={() => handleSocialAuth('google')}
+            icon={<GoogleOutlined />}
           >
-            Google+
+            Google
           </Button>
         </Col>
       </Row>

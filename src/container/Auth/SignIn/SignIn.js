@@ -13,22 +13,31 @@ import Wrapper, {
   BannerWrapper,
 } from '../Auth.style';
 // demo image
-import signInImage from 'assets/images/login-page-bg.jpg';
-import tripFinder from 'assets/images/logo-alt.svg';
+import signInImage from 'assets/images/cover.png';
+import LogoImage from 'assets/images/logo.png';
+import { NavLink } from 'react-router-dom';
 
+import {HOME_PAGE} from 'settings/constant';
+
+const LogoIcon = () => (
+    <div style={{display:'flex', width:'100%', 'align-items': 'center', 'justify-content':'center'}}>
+      <NavLink to={`${HOME_PAGE}`}>
+        <img src={LogoImage} alt="One Local Host" style={{width: "240px"}}/>
+      </NavLink>
+    </div>
+);
 const SignIn = () => {
   return (
     <Wrapper>
       <FormWrapper>
-        <Logo withLink linkTo="/" src={tripFinder} title="TripFinder." />
-        <Title>Welcome Back</Title>
-        <TitleInfo>Please log into your account</TitleInfo>
-        <SignInForm />
-        <Divider>Or log in with </Divider>
+        <LogoIcon />
+        <Title style={{'font-size': '30px', 'text-align': 'center'}}>Bienvenido a One Local Host</Title>
+        <TitleInfo style={{'font-size': '18px', 'text-align': 'center'}}>Por favor ingresa a tu cuenta</TitleInfo>
+        <Divider></Divider>
         <SocialLogin />
         <Text>
-          Don't Have an Account?&nbsp;
-          <Link to={REGISTRATION_PAGE}>Registration</Link>
+        ¿No tienes una cuenta?
+          <Link to={REGISTRATION_PAGE}> Regístrate</Link>
         </Text>
       </FormWrapper>
       <BannerWrapper>

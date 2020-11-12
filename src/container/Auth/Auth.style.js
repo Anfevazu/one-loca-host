@@ -64,8 +64,8 @@ export const FormWrapper = styled.div`
 
   .ant-btn {
     &.facebook-btn,
-    &.github-btn,
-    &.firebase-btn,
+    &.insta-btn,
+    &.twitter-btn,
     &.google-btn {
       height: 57px;
       border-radius: 3px;
@@ -79,13 +79,13 @@ export const FormWrapper = styled.div`
       border-color: ${themeGet('color.7', '#3b5998')};
       background-color: ${themeGet('color.7', '#3b5998')};
     }
-    &.github-btn {
-      border-color: ${themeGet('color.14', '#00ACEE')};
-      background-color: ${themeGet('color.14', '#00ACEE')};
+    &.insta-btn {
+      border-color: transparent;
+      background: linear-gradient(173.5deg, #4E60D3 0%, #913BAF 36.52%, #D52D88 76.15%, #F26D4F 100%);
     }
-    &.firebase-btn {
-      border-color: ${themeGet('color', '#FFCB2B')};
-      background-color: ${themeGet('color', '#FFCB2B')};
+    &.twitter-btn {
+      border-color: #1DADEB;
+      background-color: #1DADEB;
     }
     &.google-btn {
       border-color: ${themeGet('color.10', '#dd4b39')};
