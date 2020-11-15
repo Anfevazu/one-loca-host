@@ -38,29 +38,9 @@ export default withRouter(function Layout({ children, location }) {
         <Fragment>
           <Header />
           <Content>{children}</Content>
-          {location.pathname === LISTING_POSTS_PAGE ||
-          location.pathname === PRICING_PLAN_PAGE ||
-          location.pathname === ADD_HOTEL_PAGE ||
-          location.pathname === AGENT_PROFILE_PAGE ||
-          location.pathname === CHANGE_PASSWORD_PAGE ||
-          location.pathname === FORGET_PASSWORD_PAGE ||
-          location.pathname === PRIVACY_PAGE ||
-          location.pathname ===
-            `${AGENT_ACCOUNT_SETTINGS_PAGE + AGENT_IMAGE_EDIT_PAGE}` ||
-          location.pathname ===
-            `${AGENT_ACCOUNT_SETTINGS_PAGE + AGENT_PASSWORD_CHANGE_PAGE}` ||
-          location.pathname === AGENT_ACCOUNT_SETTINGS_PAGE ? (
-            <div style={{ height: '33px' }} />
-          ) : (
             <Fragment>
               <Footer />
-              {singlePageUrlFormLocation[1] === singlePageUrlFromConst[1] && (
-                <Fragment>
-                  {width < 1200 && <div style={{ height: '74px' }} />}
-                </Fragment>
-              )}
             </Fragment>
-          )}
         </Fragment>
       )}
     </LayoutProvider>

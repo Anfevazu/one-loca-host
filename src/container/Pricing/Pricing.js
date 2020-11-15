@@ -4,10 +4,11 @@ import PricingWrapper, {
   PricingHeader,
   Title,
   Description,
-  ButtonGroup,
-  PricingTableArea,
-  Button,
+  Steps,
+  PricingTableArea
 } from './Pricing.style';
+import PricingHelp from './PricingHelp'
+import Footer from '../Layout/Footer/Footer'
 // demo data
 import { monthlyPlans, annuallyPlans } from './Pricing.data';
 
@@ -22,32 +23,46 @@ const Pricing = () => {
   }
 
   return (
-    <PricingWrapper>
-      <PricingHeader>
-        <Title>Select Your Pricing Plan</Title>
+    <div>
+        <PricingWrapper>
+      <PricingHeader/>
+      <Title>Selecciona el mejor plan para tu viaje</Title>
         <Description>
-          Simple Transparent pricing for everyone, whether you are local hotel
-          owner or an agent.
+        Precios simples y transparentes para todos
         </Description>
-        <ButtonGroup>
-          <Button
-            onClick={() => setCurrentPlan('monthly')}
-            className={currentPlan === 'monthly' ? 'active' : null}
-          >
-            Monthly
-          </Button>
-          <Button
-            onClick={() => setCurrentPlan('annually')}
-            className={currentPlan === 'annually' ? 'active' : null}
-          >
-            Annually
-          </Button>
-        </ButtonGroup>
-      </PricingHeader>
       <PricingTableArea>
         <PricingItems plans={plans} />
       </PricingTableArea>
+      <Steps>
+      <Title>Planea tu viaje en 4 pasos</Title>
+      <div style={{'display': 'flex', 'justify-content': 'space-around'}}>
+        <div>
+        <Title>1</Title>
+        <Title>Busca tu destino</Title>
+        </div>
+        <div>
+        <Title>2</Title>
+        <Title>Selecciona tu Host </Title>
+        </div>
+        <div>
+        <Title>3</Title>
+        <Title>Elige el plan que quieres</Title>
+        </div>
+        <div>
+        <Title>4</Title>
+        <Title>Contacta a tu host y vive las mejores experiencias</Title>
+        </div>
+      </div>
+      </Steps>
+      <Description style={{'margin-top': '35px', 'font-size':'20px'}}>
+        ¿Tienes preguntas?
+      </Description>
+      <Title>Nosotros podemos ayudar</Title>
+      <PricingHelp/>
     </PricingWrapper>
+    </div>
+
+
   );
 };
 

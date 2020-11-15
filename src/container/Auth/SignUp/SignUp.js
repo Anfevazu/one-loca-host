@@ -40,7 +40,7 @@ const SignUp = () => {
       <BannerWrapper>
         <div
           style={{
-            backgroundImage: `url(${signInImage})`,
+            backgroundImage: `url(${signInImage})` ,
             backgroundPosition: 'center center',
             height: '100vh',
             backgroundSize: 'cover',

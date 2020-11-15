@@ -36,9 +36,9 @@ export default function PriceCard({ className, data, buttonText }) {
           </li>
         ))}
       </PricingList>
-      <PriceAction>
+      {/* <PriceAction>
         <Button>{buttonText}</Button>
-      </PriceAction>
+      </PriceAction> */}
     </PriceCardWrapper>
   );
 }

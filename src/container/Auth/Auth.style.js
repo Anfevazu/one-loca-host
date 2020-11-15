@@ -220,6 +220,7 @@ export const BannerWrapper = styled.div`
     width: 57%;
     top: 0;
     right: 0;
+    bottom:0;
 
     @media only screen and (max-width: 1200px) {
       width: 50%;

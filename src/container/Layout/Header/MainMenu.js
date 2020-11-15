@@ -18,7 +18,7 @@ const MainMenu = ({ className }) => {
         </NavLink>
       </Menu.Item>
       <Menu.Item key="1">
-        <NavLink to={`${LISTING_POSTS_PAGE}`}>Quiero ser host</NavLink>
+        <a href="https://houst.onelocalhost.com"  target="_blank">Quiero ser host</a>
       </Menu.Item>
       {/* <Menu.Item key="2">
         <NavLink to={`${AGENT_PROFILE_PAGE}`}>Agent</NavLink>

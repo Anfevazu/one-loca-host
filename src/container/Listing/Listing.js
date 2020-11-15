@@ -12,6 +12,7 @@ import useDataApi from 'library/hooks/useDataApi';
 import { SINGLE_POST_PAGE } from 'settings/constant';
 import ListingWrapper, { PostsWrapper, ShowMapCheckbox } from './Listing.style';
 
+
 export default function Listing({ location, history }) {
   let url = '/data/hotel.json';
   const { width } = useWindowSize();
@@ -42,7 +43,7 @@ export default function Listing({ location, history }) {
           right={
             <ShowMapCheckbox>
               <Checkbox defaultChecked={false} onChange={handleMapToggle}>
-                Show map
+                Ver Mapa
               </Checkbox>
             </ShowMapCheckbox>
           }

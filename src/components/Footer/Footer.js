@@ -7,6 +7,7 @@ import FooterWrapper, {
 } from './Footer.style';
 
 const Footer = ({ logo, menu, bgSrc, copyright, className, path }) => {
+  console.log(bgSrc)
   return (
     <>
       <FooterWrapper id="footer" className={className} bg-img={bgSrc}>

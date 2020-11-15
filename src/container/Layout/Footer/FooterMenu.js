@@ -17,7 +17,10 @@ const FooterMenu = () => {
         <NavLink to={`${LISTING_POSTS_PAGE}`}>Quiero ser host</NavLink>
       </Menu.Item>
       <Menu.Item key="2">
-        <NavLink to={`${PRICING_PLAN_PAGE}`}>Pricing</NavLink>
+        <NavLink to={`${PRICING_PLAN_PAGE}`}>Precios</NavLink>
+      </Menu.Item>
+      <Menu.Item key="3">
+        <NavLink to={`${PRICING_PLAN_PAGE}`}>Contactanos</NavLink>
       </Menu.Item>
     </Menu>
   );
