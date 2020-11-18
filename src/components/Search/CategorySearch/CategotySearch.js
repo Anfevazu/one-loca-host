@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import moment from 'moment';
-import { Button, Slider, Checkbox } from 'antd';
+import { Button, Slider, Checkbox, Tooltip } from 'antd';
+import { ClearOutlined  } from '@ant-design/icons';
 import ViewWithPopup from 'components/UI/ViewWithPopup/ViewWithPopup';
 import InputIncDec from 'components/UI/InputIncDec/InputIncDec';
 import DateRangePickerBox from 'components/UI/DatePicker/ReactDates';
@@ -142,7 +143,7 @@ const CategotySearch = ({ history, location }) => {
         }
         key={400}
         noView={true}
-        view={<Button type="default">Choose Date</Button>}
+        view={<Button type="default">Elegir Fecha</Button>}
         popup={
           <DateRangePickerBox
             startDateId="startDate-id-category"
@@ -162,90 +163,43 @@ const CategotySearch = ({ history, location }) => {
       />
 
       <ViewWithPopup
-        className={
-          price.min === price.defaultMin && price.max === price.defaultMax
-            ? ''
-            : 'activated'
-        }
-        key={300}
+        className={property.length ? 'activated' : ''}
+        key={getPropertyType.id}
         noView={true}
         view={
           <Button type="default">
-            {price.min > 0 || price.max < 100
-              ? `Price: ${price.min}, ${price.max}`
-              : `Price per night`}
+            Habilidades
           </Button>
         }
         popup={
-          <Slider
-            range
-            marks={priceInit}
-            min={price.defaultMin}
-            max={price.defaultMax}
-            defaultValue={[price.min, price.max]}
-            onAfterChange={(value) => onChange(value, 'price')}
+          <Checkbox.Group
+            options={getPropertyType.options}
+            defaultValue={property}
+            onChange={(value) => onChange(value, 'property')}
           />
         }
       />
 
-      <ViewWithPopup
-        key={200}
+    <ViewWithPopup
+        className={property.length ? 'activated' : ''}
+        key={getPropertyType.id}
         noView={true}
-        className={countRoom || countGuest ? 'activated' : ''}
         view={
           <Button type="default">
-            Room {countRoom > 0 && `: ${countRoom}`}, Guest
-            {countGuest > 0 && `: ${countGuest}`}
+            Experiencias
           </Button>
         }
         popup={
-          <RoomGuestWrapper>
-            <ItemWrapper>
-              <strong>Room</strong>
-              <InputIncDec
-                id="room"
-                increment={() => setRoom((countRoom) => countRoom + 1)}
-                decrement={() =>
-                  setRoom((countRoom) => countRoom > 0 && countRoom - 1)
-                }
-                onChange={(e) => setRoom(e.target.value)}
-                value={countRoom}
-              />
-            </ItemWrapper>
-
-            <ItemWrapper>
-              <strong>Guest</strong>
-              <InputIncDec
-                id="guest"
-                increment={() => setGuest((countGuest) => countGuest + 1)}
-                decrement={() =>
-                  setGuest((countGuest) => countGuest > 0 && countGuest - 1)
-                }
-                onChange={(e) => setGuest(e.target.value)}
-                value={countGuest}
-              />
-            </ItemWrapper>
-
-            <ActionWrapper>
-              {countRoom || countGuest ? (
-                <Button type="default" onClick={handleRoomGuestCancel}>
-                  Clear
-                </Button>
-              ) : (
-                ''
-              )}
-              <Button type="primary" onClick={handleRoomGuestApply}>
-                Apply
-              </Button>
-            </ActionWrapper>
-          </RoomGuestWrapper>
+          <Checkbox.Group
+            options={getPropertyType.options}
+            defaultValue={property}
+            onChange={(value) => onChange(value, 'property')}
+          />
         }
       />
       <div className="view_with__popup">
         <div className="popup_handler">
-          <Button type="default" onClick={onSearchReset}>
-            Reset
-          </Button>
+            <Button shape="circle" icon={<ClearOutlined />} onClick={onSearchReset}/>
         </div>
       </div>
     </CategroySearchWrapper>

@@ -12,22 +12,22 @@ export const calenderItem = {
 
 export const getAmenities = {
   id: 1,
-  name: 'Amenities',
+  name: 'Idiomas',
   identifier: 'amenities',
   options: [
-    { label: 'Free Wi-Fi', value: 'free-wifi' },
-    { label: 'Free Parking', value: 'free-parking' },
-    { label: 'Breakfast included', value: 'breakfast' },
-    { label: 'Pool', value: 'pool' },
-    { label: 'Air Conditioning', value: 'air-condition' },
-    { label: 'Hot Shower', value: 'hot-shower' },
-    { label: 'Cable TV', value: 'cable-tv' },
+    { label: 'Ingles', value: 'free-wifi' },
+    { label: 'Espanol', value: 'free-parking' },
+    { label: 'Aleman', value: 'breakfast' },
+    { label: 'Frances', value: 'pool' },
+    { label: 'Portugues', value: 'air-condition' },
+    { label: 'Mandarin', value: 'hot-shower' },
+    { label: 'Italiano', value: 'cable-tv' },
   ],
 };
 
 export const getPropertyType = {
   id: 2,
-  name: 'Property Type',
+  name: 'Tipo de Host',
   identifier: 'property-type',
   options: [
     { label: 'Villa', value: 'villa' },

@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { Component } from 'react';
 import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
 import Loader from 'components/Loader/Loader';
@@ -13,6 +13,8 @@ import GlideCarousel, {
 import useDataApi from 'library/hooks/useDataApi';
 import { LISTING_POSTS_PAGE } from 'settings/constant';
 import LocationWrapper, { CarouselSection } from './Location.style';
+import {firestore} from '../../../firebaseConfig';
+
 const carouselOptions = {
   type: 'carousel',
   perView: 5,
@@ -40,46 +42,64 @@ const carouselOptions = {
     },
   },
 };
+export class LocationGrid extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {cityList: []}
+     this.data = []
+  }
 
-const LocationGrid = () => {
-  const { data } = useDataApi('/data/location.json');
-
-  return (
-    <LocationWrapper>
-      <Container fluid={true}>
-        <SectionTitle
-          title={<Heading content="Destinos destacados" />}
-          link={<TextLink link={LISTING_POSTS_PAGE} content="Ver todos" />}
-        />
-
-        <CarouselSection>
-          {data.length !== 0 ? (
-            <GlideCarousel
-              carouselSelector="explore_carousel"
-              prevButton={<IoIosArrowBack />}
-              nextButton={<IoIosArrowForward />}
-              options={carouselOptions}
-            >
-              <>
-                {data.map((post, index) => (
-                  <GlideSlide key={index}>
-                    <ImageCard
-                      link="listing"
-                      imageSrc={post.locationImage.url}
-                      title={post.city}
-                      meta={`${post.numberOfPost} Houst`}
-                    />
-                  </GlideSlide>
-                ))}
-              </>
-            </GlideCarousel>
-          ) : (
-            <Loader />
-          )}
-        </CarouselSection>
-      </Container>
-    </LocationWrapper>
-  );
-};
+  componentDidMount = () => {
+    var listCountry = []
+    firestore.collection("countries").get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          doc.data().cities.forEach((data) => {
+            listCountry.push(data)
+          });
+        });
+        this.setState({cityList: listCountry})
+    }).catch(function(error) {
+      console.log("Error getting documents: ", error);
+    });
+  }
+  render(){
+    return (
+      <LocationWrapper>
+        <Container fluid={true}>
+          <SectionTitle
+            title={<Heading content="Destinos destacados" />}
+            link={<TextLink link={LISTING_POSTS_PAGE} content="Ver todos" />}
+          />
+          <CarouselSection>
+            {this.state.cityList.length !== 0 ? (
+              <GlideCarousel
+                carouselSelector="explore_carousel"
+                prevButton={<IoIosArrowBack />}
+                nextButton={<IoIosArrowForward />}
+                options={carouselOptions}
+              >
+                <>
+                  {this.state.cityList.map((city, index) => (
+                    <GlideSlide key={index}>
+                      <ImageCard
+                        link={`listing?city=${city.name}`}
+                        imageSrc={city.banner}
+                        title={city.name}
+                        meta={`10 Houst`}
+                      />
+                    </GlideSlide>
+                  ))}
+                </>
+              </GlideCarousel>
+            ) : (
+              <Loader />
+            )}
+          </CarouselSection>
+        </Container>
+      </LocationWrapper>
+    );
+  }
+}
 
 export default LocationGrid;

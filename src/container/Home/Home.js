@@ -5,6 +5,8 @@ import LocationGrid from './Location/Location';
 import { LayoutContext } from 'context/LayoutProvider';
 import { Waypoint } from 'react-waypoint';
 
+
+
 const Home = () => {
   const [, dispatch] = useContext(LayoutContext);
   return (

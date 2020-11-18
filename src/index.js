@@ -7,6 +7,7 @@ import GlobalStyles from 'assets/style/Global.style';
 import AuthProvider from 'context/AuthProvider';
 import Routes from './router';
 
+
 const App = () => (
   <ThemeProvider theme={theme}>
     <>
