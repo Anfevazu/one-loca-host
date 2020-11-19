@@ -37,6 +37,10 @@ export function setStateToUrl(state) {
           }
           urlData[key] = data && data.length ? data.join() : null;
           break;
+        case 'experiences':
+          urlData[key] =
+            state[key] && state[key].length ? state[key].join() : null;
+          break;
         case 'amenities':
           urlData[key] =
             state[key] && state[key].length ? state[key].join() : null;
@@ -64,11 +68,11 @@ export function setStateToUrl(state) {
             state[key] && state[key].length ? state[key].join() : null;
           break;
         case 'location':
-          if (state[key] && state[key].lat) {
-            urlData[`${key}_lat`] = state[key].lat;
+          if (state[key] && state[key].country) {
+            urlData['country'] = state[key].country;
           }
-          if (state[key] && state[key].lng) {
-            urlData[`${key}_lng`] = state[key].lng;
+          if (state[key] && state[key].city) {
+            urlData['city'] = state[key].city;
           }
           break;
         case 'reset':
@@ -181,18 +185,18 @@ export function getStateFromUrl(location) {
         //   state[key] = urlData[key] && urlData[key] == 'true' ? true : false;
         //   break;
 
-        case 'location_lat':
-          if (urlData['location_lat']) {
+        case 'country':
+          if (urlData['country']) {
             state['location'] = {};
-            state['location']['lat'] = Number(urlData[key]);
+            state['location']['country'] = urlData[key];
           } else {
             state['location'] = null;
           }
           break;
 
-        case 'location_lng':
+        case 'city':
           if (urlData[key]) {
-            state['location']['lng'] = Number(urlData[key]);
+            state['location']['city'] = urlData[key];
           }
           break;
 

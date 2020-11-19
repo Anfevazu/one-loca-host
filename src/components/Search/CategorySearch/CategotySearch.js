@@ -1,22 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import moment from 'moment';
-import { Button, Slider, Checkbox, Tooltip } from 'antd';
+import { Button, Checkbox } from 'antd';
 import { ClearOutlined  } from '@ant-design/icons';
 import ViewWithPopup from 'components/UI/ViewWithPopup/ViewWithPopup';
-import InputIncDec from 'components/UI/InputIncDec/InputIncDec';
 import DateRangePickerBox from 'components/UI/DatePicker/ReactDates';
 import { setStateToUrl, getStateFromUrl } from '../url_handler';
 import {
-  priceInit,
   calenderItem,
   getAmenities,
   getPropertyType,
 } from '../SearchParams';
-import CategroySearchWrapper, {
-  RoomGuestWrapper,
-  ItemWrapper,
-  ActionWrapper,
-} from './CategorySearch.style';
+import CategroySearchWrapper from './CategorySearch.style';
 
 const CategotySearch = ({ history, location }) => {
   const searchParams = getStateFromUrl(location);
@@ -27,22 +21,12 @@ const CategotySearch = ({ history, location }) => {
       setStartDate: null,
       setEndDate: null,
     },
-    price: searchParams.price || {
-      min: 0,
-      max: 100,
-      defaultMin: 0,
-      defaultMax: 100,
-    },
     location: searchParams.location || {
       lat: null,
       lng: null,
     },
-    room: parseInt(searchParams.room) || 0,
-    guest: parseInt(searchParams.guest) || 0,
   };
-  const { amenities, property, date_range, price, room, guest } = state;
-  const [countRoom, setRoom] = useState(room);
-  const [countGuest, setGuest] = useState(guest);
+  const { amenities, property, date_range } = state;
 
   const onChange = (value, type) => {
     const query = {
@@ -56,37 +40,36 @@ const CategotySearch = ({ history, location }) => {
     });
   };
 
-  const handleRoomGuestApply = () => {
-    const query = {
-      ...state,
-      room: countRoom,
-      guest: countGuest,
-    };
-    const search = setStateToUrl(query);
-    history.push({
-      pathname: '/listing',
-      search: search,
-    });
-  };
+  // const handleRoomGuestApply = () => {
+  //   const query = {
+  //     ...state,
+  //     room: countRoom,
+  //     guest: countGuest,
+  //   };
+  //   const search = setStateToUrl(query);
+  //   history.push({
+  //     pathname: '/listing',
+  //     search: search,
+  //   });
+  // };
 
-  const handleRoomGuestCancel = () => {
-    setRoom(0);
-    setGuest(0);
-    const query = {
-      ...state,
-      room: 0,
-      guest: 0,
-    };
-    const search = setStateToUrl(query);
-    history.push({
-      pathname: '/listing',
-      search: search,
-    });
-  };
+  // const handleRoomGuestCancel = () => {
+  //   setRoom(0);
+  //   setGuest(0);
+  //   const query = {
+  //     ...state,
+  //     room: 0,
+  //     guest: 0,
+  //   };
+  //   const search = setStateToUrl(query);
+  //   history.push({
+  //     pathname: '/listing',
+  //     search: search,
+  //   });
+  // };
 
   const onSearchReset = () => {
-    setRoom(0);
-    setGuest(0);
+
     const search = setStateToUrl({ reset: '' });
     history.push({
       pathname: '/listing',
@@ -164,7 +147,7 @@ const CategotySearch = ({ history, location }) => {
 
       <ViewWithPopup
         className={property.length ? 'activated' : ''}
-        key={getPropertyType.id}
+        key={200}
         noView={true}
         view={
           <Button type="default">
@@ -182,7 +165,7 @@ const CategotySearch = ({ history, location }) => {
 
     <ViewWithPopup
         className={property.length ? 'activated' : ''}
-        key={getPropertyType.id}
+        key={100}
         noView={true}
         view={
           <Button type="default">

@@ -55,8 +55,8 @@ const Rating = props => {
           <span>{ratingFieldName}</span> {ratingView}
         </>
       )}
-      <div style={{'margin-left': 'auto'}}>
-      <NavLink to="/">
+      <div style={{'marginLeft': 'auto'}}>
+      <NavLink to="/listing">
           <img src={logoWs} alt="Whatsapp-icon" />
       </NavLink>
 

@@ -10,7 +10,6 @@ import ImageCard from 'components/ImageCard/ImageCard';
 import GlideCarousel, {
   GlideSlide,
 } from 'components/UI/GlideCarousel/GlideCarousel';
-import useDataApi from 'library/hooks/useDataApi';
 import { LISTING_POSTS_PAGE } from 'settings/constant';
 import LocationWrapper, { CarouselSection } from './Location.style';
 import {firestore} from '../../../firebaseConfig';
@@ -46,7 +45,7 @@ export class LocationGrid extends Component {
   constructor(props) {
     super(props)
     this.state = {cityList: []}
-     this.data = []
+    this.data = []
   }
 
   componentDidMount = () => {

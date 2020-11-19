@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Divider } from 'antd';
-import Logo from 'components/UI/Logo/Logo';
 import { REGISTRATION_PAGE } from 'settings/constant';
-import SignInForm from './SignInForm';
 import SocialLogin from '../SocialLogin';
 import Wrapper, {
   Title,
@@ -16,11 +14,10 @@ import Wrapper, {
 import signInImage from 'assets/images/cover.png';
 import LogoImage from 'assets/images/logo.png';
 import { NavLink } from 'react-router-dom';
-
 import {HOME_PAGE} from 'settings/constant';
 
 const LogoIcon = () => (
-    <div style={{display:'flex', width:'100%', 'align-items': 'center', 'justify-content':'center'}}>
+    <div style={{display:'flex', width:'100%', 'alignItems': 'center', 'justifyContent':'center'}}>
       <NavLink to={`${HOME_PAGE}`}>
         <img src={LogoImage} alt="One Local Host" style={{width: "240px"}}/>
       </NavLink>

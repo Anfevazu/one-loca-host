@@ -1,16 +1,16 @@
 import React from 'react';
 import Logo from './UI/Logo/Logo';
-import HeaderWrapper, { AvatarImage } from '../container/Layout/Header/Header.style';
+import { AvatarImage } from '../container/Layout/Header/Header.style';
 
 
-export default function HoustPicture() {
-  const avatarImg = `http://s3.amazonaws.com/redqteam.com/isomorphic-reloaded-image/profilepic.png`;
+export default function HoustPicture(props) {
+  const {picture} = props;
   return (
-    <div style={{display: 'flex', 'align-items': 'center' }}>
+    <div style={{display: 'flex', 'alignItems': 'center' }}>
         <AvatarImage>
-          <Logo src={avatarImg} />
+          <Logo src={picture} />
         </AvatarImage>
-        <div style={{'font-weight': 'bold'}}>Andres Vasquez</div>
+        <div style={{'fontWeight': 'bold'}}>Andres Vasquez</div>
     </div>
   );
 }

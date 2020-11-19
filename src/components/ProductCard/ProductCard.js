@@ -34,11 +34,16 @@ const responsive = {
   },
 };
 
+const favorityShow = window.location.pathname === '/profile' ? true : false;
+
 const PostGrid = ({
   title,
   rating,
   location,
-  price,
+  country,
+  city,
+  profile,
+  picture,
   ratingCount,
   gallery,
   slug,
@@ -47,17 +52,18 @@ const PostGrid = ({
   return (
     <GridCard
       isCarousel={true}
-      favorite={
+      favorite={ favorityShow ?
         <Favourite
           onClick={event => {
             console.log(event);
           }}
-        />
+        /> : <div></div>
       }
-      location={location.formattedAddress}
+      location={`${country}, ${city}`}
       title={<TextLink link={`${link}/${slug}`} content={title} />}
-      price={"descripcion del man"}
+      profile={profile}
       rating={<Rating rating={rating} ratingCount={ratingCount} type="bulk" />}
+      picture={picture}
       viewDetailsBtn={
         <TextLink
           link={`${link}/${slug}`}

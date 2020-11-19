@@ -3,9 +3,7 @@ import PriceCardWrapper, {
   Title,
   Price,
   PricingHeader,
-  PricingList,
-  PriceAction,
-  Button,
+  PricingList
 } from './PriceCard.style';
 
 export default function PriceCard({ className, data, buttonText }) {

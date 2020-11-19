@@ -19,7 +19,7 @@ const MapInfoWindow = ({ data, onCloseClick }) => {
           />
         }
       >
-        <img src={data?.thumbUrl} alt={data?.title} />
+        <img src={data?.thumbUrl} alt="img" />
       </GridCard>
     </InfoWindow>
   );

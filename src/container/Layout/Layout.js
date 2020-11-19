@@ -1,31 +1,21 @@
 import React, { Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Layout as LayoutWrapper } from 'antd';
-import useWindowSize from 'library/hooks/useWindowSize';
 import LayoutProvider from 'context/LayoutProvider';
 import {
-  LISTING_POSTS_PAGE,
   LOGIN_PAGE,
   REGISTRATION_PAGE,
-  AGENT_PROFILE_PAGE,
-  AGENT_ACCOUNT_SETTINGS_PAGE,
-  ADD_HOTEL_PAGE,
-  PRICING_PLAN_PAGE,
-  SINGLE_POST_PAGE,
-  PRIVACY_PAGE,
   CHANGE_PASSWORD_PAGE,
   FORGET_PASSWORD_PAGE,
-  AGENT_IMAGE_EDIT_PAGE,
-  AGENT_PASSWORD_CHANGE_PAGE,
 } from 'settings/constant';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 const { Content } = LayoutWrapper;
 
 export default withRouter(function Layout({ children, location }) {
-  const { width } = useWindowSize();
-  const singlePageUrlFromConst = SINGLE_POST_PAGE.split('/');
-  const singlePageUrlFormLocation = location.pathname.split('/');
+  // const { width } = useWindowSize();
+  // const singlePageUrlFromConst = SINGLE_POST_PAGE.split('/');
+  // const singlePageUrlFormLocation = location.pathname.split('/');
 
   return (
     <LayoutProvider>

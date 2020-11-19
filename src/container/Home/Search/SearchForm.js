@@ -29,6 +29,7 @@ const SearchForm = ({ history }) => {
     setEndDate: null,
   });
   const [mapValue, setMapValue] = useState([]);
+  const [experience, setExperienceValue] =  useState("");
 
   const updatevalueFunc = (event) => {
     const { searchedPlaceAPIData } = event;
@@ -36,13 +37,19 @@ const SearchForm = ({ history }) => {
       setMapValue(searchedPlaceAPIData);
     }
   };
-
+  const updateExperienceValue = (value) => {
+    setExperienceValue(value)
+  }
   const goToSearchPage = () => {
+    console.log(experience)
     let tempLocation = [];
     const mapData = mapValue ? mapDataHelper(mapValue) : [];
     mapData &&
       mapData.map((singleMapData, i) => {
         return tempLocation.push({
+          city: singleMapData.city,
+          country: singleMapData.country_long,
+          country_short: singleMapData.country_short,
           formattedAddress: singleMapData ? singleMapData.formattedAddress : '',
           lat: singleMapData ? singleMapData.lat.toFixed(3) : null,
           lng: singleMapData ? singleMapData.lng.toFixed(3) : null,
@@ -52,6 +59,7 @@ const SearchForm = ({ history }) => {
     const query = {
       date_range: searchDate,
       location,
+      experience
     };
     const search = setStateToUrl(query);
     history.push({
@@ -85,7 +93,7 @@ const SearchForm = ({ history }) => {
 
       <ComponentWrapper>
         <FaUserCircle className="user-friends" />
-        <SearchInput/>
+        <SearchInput inputExperience={(value) => updateExperienceValue(value)}/>
       </ComponentWrapper>
 
       <Button

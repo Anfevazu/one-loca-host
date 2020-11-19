@@ -4,8 +4,6 @@ import { Menu } from 'antd';
 
 import {
   HOME_PAGE,
-  LISTING_POSTS_PAGE,
-  AGENT_PROFILE_PAGE,
   PRICING_PLAN_PAGE,
 } from 'settings/constant';
 
@@ -18,7 +16,7 @@ const MainMenu = ({ className }) => {
         </NavLink>
       </Menu.Item>
       <Menu.Item key="1">
-        <a href="https://houst.onelocalhost.com"  target="_blank">Quiero ser host</a>
+        <a href="https://houst.onelocalhost.com"  target="_blank" rel="noopener noreferrer">Quiero ser host</a>
       </Menu.Item>
       {/* <Menu.Item key="2">
         <NavLink to={`${AGENT_PROFILE_PAGE}`}>Agent</NavLink>

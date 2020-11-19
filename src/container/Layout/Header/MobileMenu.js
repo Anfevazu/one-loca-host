@@ -5,7 +5,6 @@ import { AuthContext } from 'context/AuthProvider';
 import {
   HOME_PAGE,
   LISTING_POSTS_PAGE,
-  PRICING_PLAN_PAGE,
   AGENT_ACCOUNT_SETTINGS_PAGE,
 } from 'settings/constant';
 

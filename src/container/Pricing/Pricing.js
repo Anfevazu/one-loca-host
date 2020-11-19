@@ -8,12 +8,11 @@ import PricingWrapper, {
   PricingTableArea
 } from './Pricing.style';
 import PricingHelp from './PricingHelp'
-import Footer from '../Layout/Footer/Footer'
 // demo data
 import { monthlyPlans, annuallyPlans } from './Pricing.data';
 
 const Pricing = () => {
-  const [currentPlan, setCurrentPlan] = useState('monthly');
+  const [currentPlan] = useState('monthly');
   let plans = [];
   if (currentPlan === 'monthly') {
     plans = monthlyPlans;

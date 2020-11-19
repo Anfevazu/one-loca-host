@@ -22,6 +22,9 @@ const FooterMenu = () => {
       <Menu.Item key="3">
         <NavLink to={`${PRICING_PLAN_PAGE}`}>Contactanos</NavLink>
       </Menu.Item>
+      <Menu.Item key="4">
+        <NavLink to={`${PRICING_PLAN_PAGE}`}>Terminos</NavLink>
+      </Menu.Item>
     </Menu>
   );
 };
