@@ -94,7 +94,7 @@ const SignInForm = () => {
         className="signin-btn"
         type="primary"
         htmlType="submit"
-        size="large"
+        size="default"
         style={{ width: '100%' }}
       >
         <MdLockOpen />

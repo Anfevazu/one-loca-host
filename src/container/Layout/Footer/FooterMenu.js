@@ -5,7 +5,10 @@ import { Menu } from 'antd';
 import {
   HOME_PAGE,
   LISTING_POSTS_PAGE,
-  PRICING_PLAN_PAGE} from 'settings/constant';
+  PRICING_PLAN_PAGE,
+  PRIVACY_PAGE,
+  CONTACT_US
+} from 'settings/constant';
 
 const FooterMenu = () => {
   return (
@@ -20,10 +23,10 @@ const FooterMenu = () => {
         <NavLink to={`${PRICING_PLAN_PAGE}`}>Precios</NavLink>
       </Menu.Item>
       <Menu.Item key="3">
-        <NavLink to={`${PRICING_PLAN_PAGE}`}>Contactanos</NavLink>
+        <NavLink to={`${CONTACT_US}`}>Contáctanos</NavLink>
       </Menu.Item>
       <Menu.Item key="4">
-        <NavLink to={`${PRICING_PLAN_PAGE}`}>Terminos</NavLink>
+        <NavLink to={`${PRIVACY_PAGE}`}>Politicas de privacidad</NavLink>
       </Menu.Item>
     </Menu>
   );

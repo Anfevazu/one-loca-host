@@ -12,8 +12,8 @@ export default ({ staticContext = {} }) => {
     <NotFoundWrapper>
       <ContentWrapper>
         <Image src={Image404} alt="404" />
-        <Heading as="h2" content="Something Went Wrong" />
-        <TextLink link="/" content="Go Back" />
+        <Heading as="h2" content="Algo salió mal ...!" />
+        <TextLink link="/" content="Ir al inicio" />
       </ContentWrapper>
     </NotFoundWrapper>
   );

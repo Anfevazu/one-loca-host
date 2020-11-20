@@ -15,6 +15,7 @@ import {
   AGENT_ACCOUNT_SETTINGS_PAGE,
   PRIVACY_PAGE,
   PRICING_PLAN_PAGE,
+  CONTACT_US
 } from './settings/constant';
 
 /**
@@ -106,6 +107,15 @@ const routes = [
         import(/* webpackChunkName: "privacy" */ './container/Privacy/Privacy'),
       loading: Loading,
       modules: ['Privacy'],
+    }),
+  },
+  {
+    path: CONTACT_US,
+    component: Loadable({
+      loader: () =>
+        import(/* webpackChunkName: "privacy" */ './container/ContactUs/ContactUs'),
+      loading: Loading,
+      modules: ['ContactUs'],
     }),
   },
   {
