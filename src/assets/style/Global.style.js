@@ -671,8 +671,8 @@ const GlobalStyle = createGlobalStyle`
         .reservation_sidebar {
           box-shadow: 0 1px 10px rgba(0,0,0,0.16);
           header {
-            padding-top: 50px;
-            padding-bottom: 20px;
+            padding-top: 30px;
+            padding-bottom: 10px;
             border-color: ${themeGet('border.0', '#EBEBEB')};
             @media only screen and (max-width: 375px) {
               padding-top: 30px;

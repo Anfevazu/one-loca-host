@@ -16,12 +16,6 @@ import {
   ComponentWrapper,
 } from './Search.style';
 
-const calendarItem = {
-  separator: '-',
-  format: 'DD-MM-YYYY',
-  locale: 'es',
-};
-
 const SearchForm = ({ history }) => {
   const [mapValue, setMapValue] = useState([]);
   const [experiences, setExperienceValue] =  useState("");

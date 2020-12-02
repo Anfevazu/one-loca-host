@@ -4,9 +4,8 @@ import { Element } from 'react-scroll';
 import Rating from 'components/UI/Rating/Rating';
 import Heading from 'components/UI/Heading/Heading';
 import Text from 'components/UI/Text/Text';
-import { Button } from 'antd';
 import DescriptionWrapper from './Description.style';
-import { RatingMeta, TextButton } from '../SinglePageView.style';
+import { RatingMeta } from '../SinglePageView.style';
 
 const Description = ({
   name,

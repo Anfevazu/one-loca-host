@@ -56,7 +56,7 @@ import { firestore } from '../../firebaseConfig';
   }
   useEffect(() => {
     let queryRef;
-    if(location.search == ""){
+    if(location.search === ""){
       setData([])
     }
 

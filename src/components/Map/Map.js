@@ -5,7 +5,7 @@ import HotelMapMarkerCluster from './ListingPageMap';
 import HotelMapMarkerSingle from './SinglePageMap';
 
 const Map = (props) => {
-  const { multiple, location } = props;
+  const { multiple, location, zoom=4, center={lat: 5.5932547, lng: -69.9773953} } = props;
   const handleClustererClick = (data) => {
     const markerClusterer = data.getMarkers();
     console.log(`Current clicked markers length: ${markerClusterer.length}`);
@@ -18,11 +18,8 @@ const Map = (props) => {
         <MapWrapper
           containerElement={<div style={{ height: '400px' }} />}
           mapElement={<div style={{ height: '100%' }} />}
-          defaultZoom={4}
-          defaultCenter={{
-            lat: 5.5932547,
-            lng: -69.9773953,
-          }}
+          defaultZoom={zoom}
+          defaultCenter={center}
         >
           <MarkerClusterer
             gridSize={60}
@@ -37,7 +34,7 @@ const Map = (props) => {
         <MapWrapper
           containerElement={<div style={{ height: '400px' }} />}
           mapElement={<div style={{ height: '100%' }} />}
-          defaultZoom={4}
+          defaultZoom={zoom}
           defaultCenter={{
             lat: 5.5932547,
             lng: -69.9773953,

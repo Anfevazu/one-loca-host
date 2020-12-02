@@ -7,7 +7,6 @@ import {
   PinterestShare,
 } from 'components/SocialShare/SocialShare';
 import { Button, Menu, Dropdown } from 'antd';
-import Favorite from 'components/UI/Favorite/Favorite';
 import ScrollBar from 'components/UI/ScrollBar/ScrollBar';
 import { TobBarWrapper, ButtonGroup } from '../SinglePageView.style';
 

@@ -29,7 +29,8 @@ const Location = ({
           content={capitalize(location.indications)}
           {...boldContentStyle}
         />
-        <Map location={[location]} multiple={true} />
+        <Map location={[location]} multiple={true} zoom={12} center={
+          {lat: parseFloat(location.location.lat), lng: parseFloat(location.location.lng)}}/>
       </LocationWrapper>
     </Element>
   );
