@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import isEmpty from 'lodash/isEmpty';
 import Map from 'components/Map/Map';
 import useDataApi from 'library/hooks/useDataApi';
 import { FixedMap } from './Listing.style';
 
-const ListingMap = () => {
-  const { data, loading } = useDataApi('/data/hotel.json');
+const ListingMap = ({houstList}) => {
+  console.log(houstList)
+  const loading = false
+  const data = houstList;
+
   if (isEmpty(data) || loading) return <div>Loading</div>;
 
   return (

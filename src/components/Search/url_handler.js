@@ -26,41 +26,27 @@ export function getUrl(location) {
   return urlData;
 }
 export function setStateToUrl(state) {
-  console.log(state, 'state');
   let urlData = {};
   for (const key in state) {
     if (state.hasOwnProperty(key)) {
       switch (key) {
-        case 'date_range':
-          let data = Object.values(state[key]);
-          if (data[0] === null && data[1] === null) {
-            data = '';
-          }
-          urlData[key] = data && data.length ? data.join() : null;
-          break;
-        case 'amenities':
+        case 'languages':
           urlData[key] =
             state[key] && state[key].length ? state[key].join() : null;
           break;
-        case 'room':
-          if (state[key]) {
-            urlData[key] = state[key] ? state[key] : 0;
-          } else {
-            urlData[key] = '';
-          }
-          break;
-        case 'guest':
-          if (state[key]) {
-            urlData[key] = state[key] ? state[key] : 0;
-          } else {
-            urlData[key] = '';
-          }
-          break;
-        case 'property':
+        case 'houst_type':
           urlData[key] =
             state[key] && state[key].length ? state[key].join() : null;
           break;
-        case 'price':
+        case 'experiences':
+          urlData[key] =
+            state[key] && state[key].length ? state[key].join() : null;
+          break;
+        case 'countries':
+          urlData[key] =
+            state[key] && state[key].length ? state[key].join() : null;
+          break;
+        case 'cities':
           urlData[key] =
             state[key] && state[key].length ? state[key].join() : null;
           break;
@@ -91,97 +77,36 @@ export function getStateFromUrl(location) {
   for (const key in urlData) {
     if (urlData.hasOwnProperty(key)) {
       switch (key) {
-        // case 'text':
-        //   state[key] =
-        //     urlData[key] && urlData[key] !== 'null' ? urlData[key] : '';
-        //   break;
-        // case 'categories':
-        //   state[key] =
-        //     urlData[key] && urlData[key] !== 'null'
-        //       ? urlData[key].split(',')
-        //       : [];
-        //   break;
-
-        case 'date_range':
-          const date = urlData[key] ? urlData[key] : null;
-          if (date) {
-            let splitDate = date ? date.split(',') : null;
-            let setStartDate = splitDate ? splitDate[0] : null;
-            let setEndDate = splitDate ? splitDate[1] : null;
-            state[key] = date
-              ? { setStartDate: setStartDate, setEndDate: setEndDate }
-              : null;
-          }
-          break;
-
-        case 'amenities':
+        case 'languages':
           state[key] =
             urlData[key] && urlData[key] !== 'null'
               ? urlData[key].split(',')
               : [];
           break;
-
-        case 'room':
-          if (urlData[key]) {
-            state[key] = urlData[key] ? urlData[key] : 0;
-          } else {
-            state[key] = '';
-          }
-
-          break;
-
-        case 'guest':
-          if (urlData[key]) {
-            state[key] = urlData[key] ? urlData[key] : 0;
-          } else {
-            state[key] = '';
-          }
-          break;
-
-        case 'property':
+        case 'experiences':
           state[key] =
             urlData[key] && urlData[key] !== 'null'
               ? urlData[key].split(',')
               : [];
           break;
-
-        case 'price':
-          const defaultPrice = {
-            min: 0,
-            max: 100,
-            defaultMin: 0,
-            defaultMax: 100,
-          };
-          const price = urlData[key] ? urlData[key].split(',') : defaultPrice;
-          if (price) {
-            let min, max;
-            min = price ? Number(price[0]) : 0;
-            max = price ? Number(price[1]) : 100;
-            if (min > 0 || max < 100) {
-              state[key] = {
-                min: min,
-                max: max,
-                defaultMin: 0,
-                defaultMax: 100,
-              };
-            } else {
-              state[key] = '';
-            }
-          }
+        case 'countries':
+          state[key] =
+            urlData[key] && urlData[key] !== 'null'
+              ? urlData[key].split(',')
+              : [];
           break;
-
-        // case 'radius':
-        //   state[key] = Number(urlData[key]);
-        //   break;
-
-        // case 'condition':
-        //   state[key] = urlData[key] && urlData[key] == 'true' ? true : false;
-        //   break;
-
-        // case 'isNegotiable':
-        //   state[key] = urlData[key] && urlData[key] == 'true' ? true : false;
-        //   break;
-
+        case 'cities':
+          state[key] =
+            urlData[key] && urlData[key] !== 'null'
+              ? urlData[key].split(',')
+              : [];
+          break;
+        case 'houst_type':
+          state[key] =
+            urlData[key] && urlData[key] !== 'null'
+              ? urlData[key].split(',')
+              : [];
+          break;
         case 'location_lat':
           if (urlData['location_lat']) {
             state['location'] = {};
@@ -196,19 +121,6 @@ export function getStateFromUrl(location) {
             state['location']['lng'] = Number(urlData[key]);
           }
           break;
-
-        // case 'sorting_field':
-        //   if (urlData[key]) {
-        //     state['sorting'] = {};
-        //     state['sorting']['field'] = urlData[key];
-        //   }
-        //   break;
-
-        // case 'sorting_type':
-        //   if (urlData[key]) {
-        //     state['sorting']['type'] = urlData[key];
-        //   }
-        //   break;
 
         case 'page':
           if (urlData[key]) {

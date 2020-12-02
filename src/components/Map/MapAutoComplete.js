@@ -38,7 +38,6 @@ const SearchInput = compose(
       searchedPlaceAPIData: places ? places : [],
     });
   };
-
   const handleOnPressEnter = (event) => {
     if (event.which === '13') {
       event.preventDefault();

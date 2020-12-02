@@ -1,31 +1,58 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Heading from 'components/UI/Heading/Heading';
-import TextLink from 'components/UI/TextLink/TextLink';
-import { FaWifi, FaCarAlt, FaSwimmer, FaAirFreshener } from 'react-icons/fa';
-import IconCard from 'components/IconCard/IconCard';
 import AmenitiesWrapper, { AmenitiesArea } from './Amenities.style';
-import { TextButton } from '../SinglePageView.style';
 import { Element } from 'react-scroll';
+import { Image,Card, Tag } from 'antd';
+import {FALLBACK_IMG} from '../../../settings/constant'
+import { capitalize } from "lodash";
 
-const Amenities = ({ titleStyle, linkStyle }) => {
+const { Meta } = Card;
+
+const Amenities = ({experiences, titleStyle, linkStyle }) => {
   return (
     <Element name="amenities" className="Amenities">
       <AmenitiesWrapper>
-        <Heading as="h2" content="Amenities" {...titleStyle} />
+        <Heading as="h2" content="Experiencias" {...titleStyle} />
         <AmenitiesArea>
-          <IconCard icon={<FaWifi />} title="Free wifi" />
-          <IconCard icon={<FaCarAlt />} title="Free parking" />
-          <IconCard icon={<FaSwimmer />} title="Free pool" />
-          <IconCard icon={<FaAirFreshener />} title="Air Freshener" />
+        <CardExperiences experiences={experiences}/>
         </AmenitiesArea>
-        <TextButton>
+        {/* <TextButton>
           <TextLink link="#1" content="Show all amenities" {...linkStyle} />
-        </TextButton>
+        </TextButton> */}
       </AmenitiesWrapper>
     </Element>
   );
 };
+
+const CardExperiences = ({experiences}) => {
+  return experiences.map((exp, index) => {
+    return (
+    <Card
+      key={index}
+      style={{ width: 250 }}
+      cover={
+        <Image
+        src={exp.banner}
+        alt="Profile Pic"
+        fallback={FALLBACK_IMG}/>
+      }>
+      <Meta
+        title={capitalize(exp.title)}
+        description={capitalize(exp.description)}
+      />
+      <p style={{marginTop: "5px"}}>
+       <TagsExperiences tags={exp.tags}/>
+      </p>
+    </Card>)
+  })
+}
+
+const TagsExperiences = ({tags}) => {
+  return tags.map((tag, index) => {
+      return <Tag key={index} color="#FFCF2A">{tag}</Tag>
+  })
+}
 
 Amenities.propTypes = {
   titleStyle: PropTypes.object,

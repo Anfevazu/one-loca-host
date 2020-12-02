@@ -9,8 +9,10 @@ const MapInfoWindow = ({ data, onCloseClick }) => {
       <GridCard
         className="info_window_card"
         location={data?.formattedAddress}
-        title={data?.title}
-        price={`$${data?.price}/Night - Free Cancellation`}
+        name={data?.name}
+        last_name={data?.last_name}
+        profile={data?.profile}
+        picture={data?.picture}
         rating={
           <Rating
             rating={data?.rating}
@@ -19,7 +21,7 @@ const MapInfoWindow = ({ data, onCloseClick }) => {
           />
         }
       >
-        <img src={data?.thumbUrl} alt="img" />
+        {data?.thumbUrl ? (<img src={data?.thumbUrl} alt="img" />) : ''}
       </GridCard>
     </InfoWindow>
   );

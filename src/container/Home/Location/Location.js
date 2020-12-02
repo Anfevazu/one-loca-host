@@ -45,7 +45,6 @@ export class LocationGrid extends Component {
   constructor(props) {
     super(props)
     this.state = {cityList: []}
-    this.data = []
   }
 
   componentDidMount = () => {
@@ -61,6 +60,7 @@ export class LocationGrid extends Component {
     }).catch(function(error) {
       console.log("Error getting documents: ", error);
     });
+
   }
   render(){
     return (
@@ -68,24 +68,22 @@ export class LocationGrid extends Component {
         <Container fluid={true}>
           <SectionTitle
             title={<Heading content="Destinos destacados" />}
-            link={<TextLink link={LISTING_POSTS_PAGE} content="Ver todos" />}
-          />
+            link={<TextLink link={LISTING_POSTS_PAGE} content="Ver todos" />}/>
           <CarouselSection>
             {this.state.cityList.length !== 0 ? (
               <GlideCarousel
                 carouselSelector="explore_carousel"
                 prevButton={<IoIosArrowBack />}
                 nextButton={<IoIosArrowForward />}
-                options={carouselOptions}
-              >
+                options={carouselOptions}>
                 <>
                   {this.state.cityList.map((city, index) => (
                     <GlideSlide key={index}>
                       <ImageCard
-                        link={`listing?city=${city.name}`}
+                        link={`listing?cities=${city.name}`}
                         imageSrc={city.banner}
                         title={city.name}
-                        meta={`10 Houst`}
+                        meta={``}
                       />
                     </GlideSlide>
                   ))}

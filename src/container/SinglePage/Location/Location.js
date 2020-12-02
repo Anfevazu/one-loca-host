@@ -5,6 +5,7 @@ import Text from 'components/UI/Text/Text';
 import LocationWrapper from './Location.style';
 import Map from 'components/Map/Map';
 import { Element } from 'react-scroll';
+import { capitalize } from "lodash";
 
 const Location = ({
   titleStyle,
@@ -14,27 +15,21 @@ const Location = ({
   linkStyle,
   location,
 }) => {
-  const formattedAddress = location.formattedAddress;
+  const formattedAddress = `${location.country}, ${location.city}`;
   return (
     <Element name="location" className="location">
       <LocationWrapper>
-        <Heading as="h2" content="Location" {...titleStyle} />
+        <Heading as="h2" content="Ubicacion" {...titleStyle} />
         <Text content={formattedAddress} {...locationMetaStyle} />
         <Text
-          content="Take an easy walk to the main historic sites of the city. The
-          neighborhood is perfect for an authentic taste of Roman life, with
-          shops, art galleries, restaurants, bars, and clubs all nearby and
-          ready to be discovered."
+          content={capitalize(location.address)}
           {...contentStyle}
         />
         <Text
-          content="Distance from Leonardo da Vinci International Airport"
-          {...contentStyle}
+          content={capitalize(location.indications)}
           {...boldContentStyle}
         />
-        <Text content="26 mins by car without traffic" {...contentStyle} />
-
-        <Map location={location} multiple={false} />
+        <Map location={[location]} multiple={true} />
       </LocationWrapper>
     </Element>
   );

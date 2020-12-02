@@ -9,27 +9,31 @@ import DescriptionWrapper from './Description.style';
 import { RatingMeta, TextButton } from '../SinglePageView.style';
 
 const Description = ({
-  title,
+  name,
+  last_name,
   location,
+  profile,
   content,
   rating,
   ratingCount,
   titleStyle,
   locationMetaStyle,
   contentStyle,
+  country,
+  city
 }) => {
   return (
     <Element name="overview" className="overview">
       <DescriptionWrapper>
-        <Text content={location.formattedAddress} {...locationMetaStyle} />
-        <Heading as="h2" content={title} {...titleStyle} />
+        <Text content={`${country}, ${city}`} {...locationMetaStyle} />
+        <Heading as="h2" content={ `${name} ${last_name}`} {...titleStyle} />
         <RatingMeta>
           <Rating rating={rating} ratingCount={ratingCount} type="bulk" />
         </RatingMeta>
-        <Text content={content} {...contentStyle} />
-        <TextButton>
-          <Button>Read more about the hotel</Button>
-        </TextButton>
+        <Text content={profile} {...contentStyle} />
+        {/* <TextButton>
+          <Button>Leer mas ...</Button>
+        </TextButton> */}
       </DescriptionWrapper>
     </Element>
   );

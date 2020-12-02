@@ -5,16 +5,16 @@ import logoWs from '../../../assets/images/icon-whatsapp.png';
 import { NavLink } from 'react-router-dom';
 
 const Rating = props => {
-  const { rating, ratingCount, type, ratingFieldName } = props;
+  const { rating, ratingCount = 0, type, ratingFieldName, showPhone = false } = props;
   let i, floorValue;
   let ratingView = [];
   if (rating && rating !== 0) {
     floorValue = Math.floor(rating);
     for (i = 0; i < 5; i++) {
       if (i < floorValue) {
-        ratingView.push(<IoIosStar key={i} />);
+        ratingView.push(<IoIosStar key={i} style={{color: '#ffcf2a'}}/>);
       } else {
-        ratingView.push(<IoIosStarOutline key={i} />);
+        ratingView.push(<IoIosStarOutline key={i} style={{color: '#ffcf2a'}}/>);
       }
     }
   }
@@ -55,12 +55,14 @@ const Rating = props => {
           <span>{ratingFieldName}</span> {ratingView}
         </>
       )}
+      {showPhone ? (
       <div style={{'marginLeft': 'auto'}}>
-      <NavLink to="/listing">
+      <NavLink to="/host-info/fdfd">
           <img src={logoWs} alt="Whatsapp-icon" />
       </NavLink>
-
       </div>
+       ) :
+       ('')}
     </>
     </div>
   );

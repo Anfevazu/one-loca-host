@@ -1,25 +1,24 @@
 import React from 'react';
 import { Popover } from 'antd';
 import moment from 'moment';
-import LikeDislike from './LikeDislike';
 import Rating from '../Rating/Rating';
 
 export default class App extends React.Component {
   render() {
     const { singleReview, authorRating } = this.props;
     const reviewAuthorFirstName = singleReview
-      ? singleReview.reviewAuthorFirstName
+      ? singleReview.guest.name
       : '';
     const reviewAuthorLastName = singleReview
-      ? singleReview.reviewAuthorLastName
+      ? singleReview.guest.last_name
       : '';
     const authorName = reviewAuthorFirstName + ' ' + reviewAuthorLastName;
-    const content = singleReview ? singleReview.reviewText : '';
-    const reviewTitle = singleReview ? singleReview.reviewTitle : '';
-    const commentDate = singleReview ? singleReview.reviewDate : '';
+    const content = singleReview ? singleReview.comment : '';
+    const reviewTitle = singleReview ? singleReview.title : '';
+    const commentDate = singleReview ? singleReview.date.toDate() : '';
     const postTime = new Date(commentDate).getTime();
-    const authorAvatar = singleReview ? singleReview.reviewAuthorPic.url : '';
-    const reviewRating = singleReview ? singleReview.reviewFields : '';
+    const authorAvatar = singleReview ? singleReview.guest.picture : '';
+    const reviewRating = singleReview ? singleReview.rating : '';
 
     return (
       <div className="comment-area">
@@ -37,39 +36,21 @@ export default class App extends React.Component {
                 <div className="comment-date">
                   <Popover
                     placement="bottom"
-                    content={moment(commentDate).format(
-                      'dddd, MMMM Do YYYY, h:mm:ss a'
-                    )}
+                    content={moment(commentDate).format('MM/DD/YYYY h:mm:ss')}
                   >
-                    <span>Reviewd - {moment(postTime).fromNow()}</span>
+                    <span>Escrito - {moment(postTime).fromNow()}</span>
                   </Popover>
                 </div>
               </div>
-            </div>
-            <div className="rating-area">
-              <LikeDislike />
             </div>
           </div>
           <div className="comment-body">
             <h4>{reviewTitle}</h4>
             <p>{content}</p>
           </div>
-          <div className="comment-rating">
-            {reviewRating && reviewRating.length !== 0
-              ? reviewRating.map((singleReviewRating, i) => {
-                  return (
-                    <div className="rating-widget" key={i}>
-                      <Rating
-                        key={i}
-                        rating={singleReviewRating.rating}
-                        ratingFieldName={singleReviewRating.ratingFieldName}
-                        type="individual"
-                      />
-                    </div>
-                  );
-                })
-              : ''}
-          </div>
+
+            <Rating rating={reviewRating} type="bulk" style={{color: '#ffcf2a !important'}}/>
+
         </div>
       </div>
     );

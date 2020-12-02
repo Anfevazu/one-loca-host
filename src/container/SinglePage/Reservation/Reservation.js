@@ -22,17 +22,12 @@ const CardHeader = ({ priceStyle, pricePeriodStyle, linkStyle }) => {
   );
 };
 
-export default function Reservation() {
+export default function Reservation({email, country_code, phone}) {
   return (
     <Card
       className="reservation_sidebar"
-      header={<CardHeader />}
-      content={<RenderReservationForm />}
-      footer={
-        <p>
-          Special offers available. <TextLink to="/#1" content="See details" />
-        </p>
-      }
+      content={<RenderReservationForm email={email} country_code={country_code} phone={phone}/>}
+      footer={<p></p>}
     />
   );
 }

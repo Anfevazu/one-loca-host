@@ -159,6 +159,7 @@ const AgentAccountSettingsPage = Loadable({
  */
 
 const NotFound = Loadable({
+  path: "404",
   loader: () =>
     import(/* webpackChunkName: "NotFound" */ './container/404/404'),
   loading: Loading,

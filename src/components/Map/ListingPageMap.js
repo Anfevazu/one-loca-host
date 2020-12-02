@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Marker } from 'react-google-maps';
 import HotelInfoWindow from './MapInfoWindow';
-import MakerImage from './hotelMapMarker.png';
+import MakerImage from './point1.png';
 
 const HotelMapMarkerCluster = ({ location }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,10 +19,12 @@ const HotelMapMarkerCluster = ({ location }) => {
         id: item.id,
         lat: parseFloat(item.location.lat),
         lng: parseFloat(item.location.lng),
-        title: item.title,
-        thumbUrl: item.image.thumb_url,
-        formattedAddress: item.location.formattedAddress,
-        price: item.price,
+        name: item.name,
+        last_name: item.last_name,
+        picture: item.picture,
+        thumbUrl: item.gallery.length > 0 ? item.gallery[0].url : null,
+        formattedAddress: `${item.country}, ${item.city}`,
+        profile: item.profile,
         rating: item.rating,
         ratingCount: item.ratingCount,
       });

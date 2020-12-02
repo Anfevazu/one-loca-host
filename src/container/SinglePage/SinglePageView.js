@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { useLocation } from 'library/hooks/useLocation';
 import Sticky from 'react-stickynode';
 import { Row, Col, Modal, Button } from 'antd';
@@ -14,21 +14,37 @@ import BottomReservation from './Reservation/BottomReservation';
 import TopBar from './TopBar/TopBar';
 import SinglePageWrapper, { PostImage } from './SinglePageView.style';
 import PostImageGallery from './ImageGallery/ImageGallery';
-import useDataApi from 'library/hooks/useDataApi';
 import isEmpty from 'lodash/isEmpty';
+import Image from 'components/UI/Image/Image';
+import { ProfileImage } from '../Agent/AccountDetails/AgentDetails.style';
+import { firestore } from '../../firebaseConfig';
+import singlePostBgImg from '../../assets/images/single-post-bg.jpg';
+import {FALLBACK_IMG} from '../../settings/constant'
 
 const SinglePage = ({ match }) => {
   const { href } = useLocation();
   const [isModalShowing, setIsModalShowing] = useState(false);
   const { width } = useWindowSize();
+  const [loading, setLoading] = useState(true);
+  const [uuid] = useState(match.params.slug);
+  const [data, setdata] = useState({});
 
-  let url = '/data/hotel-single.json';
-  if (!match.params.slug) {
-    url += match.params.slug;
-  }
-  const { data, loading } = useDataApi(url);
+  useEffect(() => {
+    let queryRef = firestore.collection("houst").doc(uuid)
+    queryRef.get().then(async (snap) => {
+      if (!snap.exists) setLoading(true);
+      await setdata(snap.data())
+      setLoading(false)
+    })
+  });
+
   if (isEmpty(data) || loading) return <Loader />;
   const {
+    id,
+    name,
+    last_name,
+    country,
+    city,
     reviews,
     rating,
     ratingCount,
@@ -37,19 +53,21 @@ const SinglePage = ({ match }) => {
     gallery,
     location,
     content,
-    amenities,
+    experiences,
     author,
-  } = data[0];
+    profile,
+    picture
+  } = data;
 
+  const background = gallery.length > 0 ? gallery[0].url : singlePostBgImg
   return (
-    <SinglePageWrapper>
-      <PostImage>
+   <SinglePageWrapper>
+      <PostImage style={{backgroundImage: `url(${background})`}}>
         <Button
           type="primary"
           onClick={() => setIsModalShowing(true)}
-          className="image_gallery_button"
-        >
-          View Photos
+          className="image_gallery_button">
+          Ver Fotos
         </Button>
         <Modal
           visible={isModalShowing}
@@ -63,7 +81,7 @@ const SinglePage = ({ match }) => {
           closable={false}
         >
           <Fragment>
-            <PostImageGallery />
+            <PostImageGallery images={gallery}/>
             <Button
               onClick={() => setIsModalShowing(false)}
               className="image_gallery_close"
@@ -80,21 +98,27 @@ const SinglePage = ({ match }) => {
           </Fragment>
         </Modal>
       </PostImage>
-
       <TopBar title={title} shareURL={href} author={author} media={gallery} />
-
       <Container>
         <Row gutter={30} id="reviewSection" style={{ marginTop: 30 }}>
           <Col xl={16}>
+           <ProfileImage style={{marginLeft: 'auto', marginRight: 'auto'}}>
+              <Image src={picture} alt="Profile Pic" fallback={FALLBACK_IMG}/>
+            </ProfileImage>
             <Description
+              name={name}
+              last_name={last_name}
               content={content}
               title={title}
               location={location}
               rating={rating}
               ratingCount={ratingCount}
+              country={country}
+              city={city}
+              profile={profile}
             />
-            <Amenities amenities={amenities} />
-            <Location location={data[0]} />
+            <Amenities experiences={experiences} />
+            <Location location={data} />
           </Col>
           <Col xl={8}>
             {width > 1200 ? (
@@ -104,7 +128,7 @@ const SinglePage = ({ match }) => {
                 top={202}
                 bottomBoundary="#reviewSection"
               >
-                <Reservation />
+                <Reservation email="andresvz91@gmail.com" country_code="+57" phone="3003399134"/>
               </Sticky>
             ) : (
               <BottomReservation
@@ -114,11 +138,14 @@ const SinglePage = ({ match }) => {
                 ratingCount={ratingCount}
               />
             )}
+
           </Col>
         </Row>
         <Row gutter={30}>
           <Col xl={16}>
             <Review
+              generalReview={rating}
+              houst_id={id}
               reviews={reviews}
               ratingCount={ratingCount}
               rating={rating}
@@ -128,7 +155,8 @@ const SinglePage = ({ match }) => {
         </Row>
       </Container>
     </SinglePageWrapper>
-  );
+
+  )
 };
 
 export default SinglePage;

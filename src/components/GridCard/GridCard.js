@@ -9,36 +9,36 @@ import GridCardWrapper, {
   RatingArea,
   MetaWrapper,
 } from './GridCard.style';
-
+import { NavLink } from 'react-router-dom';
 import HoustPicture from '../HoustPicture';
 
 const GridCard = ({
-  className,
   favorite,
   location,
-  title,
-  price,
+  name,
+  last_name,
   rating,
-  editBtn,
-  viewDetailsBtn,
   picture,
   profile,
   children,
+  id
 }) => {
   return (
     <GridCardWrapper className={`grid_card`}>
       <ImageWrapper className="media_wrapper">{children}</ImageWrapper>
       <ContentWrapper className="content_wrapper">
-      <HoustPicture picture={picture}/>
+      <NavLink to={`/host-info/${id}`} style={{color: 'black'}}>
+      <HoustPicture picture={picture} name={name} last_name={last_name}/>
+      </NavLink>
         {location && <LocationArea>{location}</LocationArea>}
         <MetaWrapper className="meta_wrapper">
         {profile && <PriceArea className="price">{profile}</PriceArea>}
           {rating && <RatingArea className="rating">{rating}</RatingArea>}
         </MetaWrapper>
       </ContentWrapper>
-
       {favorite && <FavoriteIcon>{favorite}</FavoriteIcon>}
     </GridCardWrapper>
+
   );
 };
 

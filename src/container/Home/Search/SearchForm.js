@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import isEmpty from 'lodash/isEmpty';
-import { FaMapMarkerAlt, FaCalendarDay, FaUserCircle } from 'react-icons/fa';
-import { Button } from 'antd';
-import DateRangePickerBox from 'components/UI/DatePicker/ReactDates';
+import { FaMapMarkerAlt, FaUserCircle } from 'react-icons/fa';
+import { Button, message } from 'antd';
 import MapAutoComplete from 'components/Map/MapAutoComplete';
 import { mapDataHelper } from 'components/Map/mapDataHelper';
 import { setStateToUrl } from 'library/helpers/url_handler';
@@ -24,12 +23,8 @@ const calendarItem = {
 };
 
 const SearchForm = ({ history }) => {
-  const [searchDate, setSearchDate] = useState({
-    setStartDate: null,
-    setEndDate: null,
-  });
   const [mapValue, setMapValue] = useState([]);
-  const [experience, setExperienceValue] =  useState("");
+  const [experiences, setExperienceValue] =  useState("");
 
   const updatevalueFunc = (event) => {
     const { searchedPlaceAPIData } = event;
@@ -41,9 +36,12 @@ const SearchForm = ({ history }) => {
     setExperienceValue(value)
   }
   const goToSearchPage = () => {
-    console.log(experience)
     let tempLocation = [];
     const mapData = mapValue ? mapDataHelper(mapValue) : [];
+    if (mapData.length <= 0){
+      message.error('Debes selecionar un destino para continuar !');
+      return 0;
+    }
     mapData &&
       mapData.map((singleMapData, i) => {
         return tempLocation.push({
@@ -57,9 +55,8 @@ const SearchForm = ({ history }) => {
       });
     const location = tempLocation ? tempLocation[0] : {};
     const query = {
-      date_range: searchDate,
       location,
-      experience
+      experiences
     };
     const search = setStateToUrl(query);
     history.push({
@@ -76,7 +73,7 @@ const SearchForm = ({ history }) => {
         <SearchPointer/>
       </ComponentWrapper>
 
-      <ComponentWrapper>
+      {/* <ComponentWrapper>
         <FaCalendarDay className="calendar" />
         <DateRangePickerBox
           item={calendarItem}
@@ -89,7 +86,7 @@ const SearchForm = ({ history }) => {
           small={true}
           numberOfMonths={2}
         />
-      </ComponentWrapper>
+      </ComponentWrapper> */}
 
       <ComponentWrapper>
         <FaUserCircle className="user-friends" />

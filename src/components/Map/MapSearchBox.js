@@ -3,7 +3,7 @@ import _ from 'lodash';
 import { Marker } from 'react-google-maps';
 import MapWrapper from './MapWrapper';
 import { Input } from 'antd';
-import makerImage from './hotelMapMarker.png';
+import makerImage from './point1.png';
 const {
   SearchBox,
 } = require('react-google-maps/lib/components/places/SearchBox');

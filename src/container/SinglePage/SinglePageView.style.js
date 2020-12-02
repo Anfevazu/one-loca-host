@@ -201,10 +201,10 @@ export const ButtonGroup = styled.div`
 `;
 
 export const PostImage = styled.div`
-  background-image: url(${singlePostBgImg});
+  // background-image: url(${singlePostBgImg});
   background-position: center center;
   background-size: cover;
-  height: 600px;
+  height: 300px;
   position: relative;
 
   @media only screen and (max-width: 767px) {

@@ -264,14 +264,14 @@ const GlobalStyle = createGlobalStyle`
   .ant-dropdown {
     &.social_share_menu {
       z-index: 9999 !important;
-      
+
       .ant-menu {
         padding: 7px 0;
         min-width: 150px;
         border: 0;
         border-radius: 4px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    
+
         .ant-menu-item {
           margin: 0;
           padding: 0;
@@ -404,10 +404,10 @@ const GlobalStyle = createGlobalStyle`
   .gm-style-iw {
     padding: 0 !important;
     border-radius: 3px !important;
-    width: 270px !important;
+    width: 250px !important;
     z-index: 1;
     .gm-style-iw-d {
-      overflow-y: auto !important;
+      overflow-y: hidden !important;
       overflow-x: hidden !important;
       max-width: 100% !important;
     }
@@ -468,7 +468,7 @@ const GlobalStyle = createGlobalStyle`
           .ant-modal-body {
             max-width: 1170px;
             padding: 0;
-            margin: 0 auto; 
+            margin: 0 auto;
             @media only screen and (max-width: 1440px) {
               position: relative;
             }
@@ -645,12 +645,12 @@ const GlobalStyle = createGlobalStyle`
       .pac-item-query {
         font-size: 15px;
         font-weight: 600;
-        color: ${themeGet('text.0', '#2C2C2C')};  
+        color: ${themeGet('text.0', '#2C2C2C')};
         .pac-matched {
           font-weight: 700;
           color: ${themeGet('color.0', '#000000')};
         }
-      } 
+      }
       &:hover {
         background-color: ${themeGet('color.2', '#F7F7F7')};
       }
@@ -780,8 +780,8 @@ const GlobalStyle = createGlobalStyle`
     border-color: ${themeGet('border.3', '#E6E6E6')};
   }
 
-  .ant-checkbox-wrapper:hover .ant-checkbox-inner, 
-  .ant-checkbox:hover .ant-checkbox-inner, 
+  .ant-checkbox-wrapper:hover .ant-checkbox-inner,
+  .ant-checkbox:hover .ant-checkbox-inner,
   .ant-checkbox-input:focus + .ant-checkbox-inner,
   .ant-checkbox-checked::after {
     border-color: ${themeGet('primary.0', '#008489')} !important;

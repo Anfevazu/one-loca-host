@@ -1,6 +1,6 @@
 {
-	"name": "@tripfinder/hotel-cra",
-	"version": "2.0.0",
+	"name": "one-local-host",
+	"version": "1.0.0",
 	"dependencies": {
 		"@glidejs/glide": "^3.4.1",
 		"@styled-system/theme-get": "^5.1.2",

@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { Marker } from 'react-google-maps';
 import HotelInfoWindow from './MapInfoWindow';
-import MakerImage from './hotelMapMarker.png';
+import MakerImage from './point1.png';
 
 const SingleMapDisplay = ({ location }) => {
   let hotelData = [];
   const [isOpen, setIsOpen] = useState(false);
   const [markerIndex, setMarkerIndex] = useState(0);
-
   const infoWindowToggle = (index) => {
     setIsOpen(!isOpen);
     setMarkerIndex(index);

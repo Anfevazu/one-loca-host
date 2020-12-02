@@ -118,7 +118,7 @@ const ReviewWrapper = styled.div`
           span {
             font-size: 13px;
             font-weight: 700;
-            color: ${themeGet('text.0', '#2C2C2C')};
+            color: #ffcf2a;
             margin-right: 10px;
             @media only screen and (max-width: 480px) {
               min-width: 80px;

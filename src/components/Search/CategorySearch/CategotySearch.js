@@ -1,33 +1,28 @@
 import React from 'react';
-import moment from 'moment';
 import { Button, Checkbox } from 'antd';
 import { ClearOutlined  } from '@ant-design/icons';
 import ViewWithPopup from 'components/UI/ViewWithPopup/ViewWithPopup';
-import DateRangePickerBox from 'components/UI/DatePicker/ReactDates';
 import { setStateToUrl, getStateFromUrl } from '../url_handler';
 import {
-  calenderItem,
-  getAmenities,
-  getPropertyType,
+  getExperiences,
+  getLanguages,
+  getHousType,
+  getCountries,
+  getCities
 } from '../SearchParams';
 import CategroySearchWrapper from './CategorySearch.style';
 
 const CategotySearch = ({ history, location }) => {
   const searchParams = getStateFromUrl(location);
-  const state = {
-    amenities: searchParams.amenities || [],
-    property: searchParams.property || [],
-    date_range: searchParams.date_range || {
-      setStartDate: null,
-      setEndDate: null,
-    },
-    location: searchParams.location || {
-      lat: null,
-      lng: null,
-    },
-  };
-  const { amenities, property, date_range } = state;
 
+  const state = {
+    languages: searchParams.languages || [],
+    houst_type: searchParams.houst_type || [],
+    experiences: searchParams.experiences || [],
+    countries: searchParams.countries || [],
+    cities: searchParams.cities || [],
+  };
+  const { languages, houst_type, experiences, countries, cities } = state;
   const onChange = (value, type) => {
     const query = {
       ...state,
@@ -40,146 +35,112 @@ const CategotySearch = ({ history, location }) => {
     });
   };
 
-  // const handleRoomGuestApply = () => {
-  //   const query = {
-  //     ...state,
-  //     room: countRoom,
-  //     guest: countGuest,
-  //   };
-  //   const search = setStateToUrl(query);
-  //   history.push({
-  //     pathname: '/listing',
-  //     search: search,
-  //   });
-  // };
-
-  // const handleRoomGuestCancel = () => {
-  //   setRoom(0);
-  //   setGuest(0);
-  //   const query = {
-  //     ...state,
-  //     room: 0,
-  //     guest: 0,
-  //   };
-  //   const search = setStateToUrl(query);
-  //   history.push({
-  //     pathname: '/listing',
-  //     search: search,
-  //   });
-  // };
-
   const onSearchReset = () => {
-
     const search = setStateToUrl({ reset: '' });
     history.push({
       pathname: '/listing',
       search: search,
     });
-  };
+    };
 
   return (
     <CategroySearchWrapper>
       <ViewWithPopup
-        className={amenities.length ? 'activated' : ''}
-        key={getAmenities.id}
+        className={languages.length ? 'activated' : ''}
+        key={getLanguages.id}
         noView={true}
         view={
           <Button type="default">
-            {getAmenities.name}
-            {amenities.length > 0 && `: ${amenities.length}`}
+            {getLanguages.name}
+            {languages.length > 0 && `: ${languages.length}`}
           </Button>
         }
         popup={
           <Checkbox.Group
-            options={getAmenities.options}
-            defaultValue={amenities}
-            onChange={(value) => onChange(value, 'amenities')}
+            options={getLanguages.options}
+            defaultValue={languages}
+            onChange={(value) => onChange(value, 'languages')}
           />
         }
       />
 
       <ViewWithPopup
-        className={property.length ? 'activated' : ''}
-        key={getPropertyType.id}
+        className={houst_type.length ? 'activated' : ''}
+        key={getHousType.id}
         noView={true}
         view={
           <Button type="default">
-            {getPropertyType.name}
-            {property.length > 0 && `: ${property.length}`}
+            {getHousType.name}
+            {houst_type.length > 0 && `: ${houst_type.length}`}
           </Button>
         }
         popup={
           <Checkbox.Group
-            options={getPropertyType.options}
-            defaultValue={property}
-            onChange={(value) => onChange(value, 'property')}
+            options={getHousType.options}
+            defaultValue={houst_type}
+            onChange={(value) => onChange(value, 'houst_type')}
           />
         }
       />
 
       <ViewWithPopup
-        className={
-          Object.keys('date_range').length !== null &&
-          date_range.setStartDate !== null
-            ? 'activated'
-            : ''
-        }
-        key={400}
+        className={experiences.length ? 'activated' : ''}
+        key={getExperiences.id}
         noView={true}
-        view={<Button type="default">Elegir Fecha</Button>}
+        view={
+          <Button type="default">
+            {getExperiences.name}
+            {experiences.length > 0 && `: ${experiences.length}`}
+          </Button>
+        }
         popup={
-          <DateRangePickerBox
-            startDateId="startDate-id-category"
-            endDateId="endDate-id-category"
-            startDate={
-              date_range.setStartDate ? moment(date_range.setStartDate) : null
-            }
-            endDate={
-              date_range.setEndDate ? moment(date_range.setEndDate) : null
-            }
-            numberOfMonths={1}
-            small={true}
-            item={calenderItem}
-            updateSearchData={(value) => onChange(value, 'date_range')}
+          <Checkbox.Group
+            options={getExperiences.options}
+            defaultValue={experiences}
+            onChange={(value) => onChange(value, 'experiences')}
           />
         }
       />
 
       <ViewWithPopup
-        className={property.length ? 'activated' : ''}
-        key={200}
+        className={countries.length ? 'activated' : ''}
+        key={getCountries.id}
         noView={true}
         view={
           <Button type="default">
-            Habilidades
+            {getCountries.name}
+            {countries.length > 0 && `: ${countries.length}`}
           </Button>
         }
         popup={
           <Checkbox.Group
-            options={getPropertyType.options}
-            defaultValue={property}
-            onChange={(value) => onChange(value, 'property')}
+            options={getCountries.options}
+            defaultValue={countries}
+            onChange={(value) => onChange(value, 'countries')}
           />
         }
       />
 
-    <ViewWithPopup
-        className={property.length ? 'activated' : ''}
-        key={100}
+      {countries.length > 0 ?
+        (<ViewWithPopup
+        className={cities.length ? 'activated' : ''}
+        key={getCities(countries).id}
         noView={true}
         view={
           <Button type="default">
-            Experiencias
+            {getCities(countries).name}
+            {cities.length > 0 && `: ${cities.length}`}
           </Button>
         }
         popup={
           <Checkbox.Group
-            options={getPropertyType.options}
-            defaultValue={property}
-            onChange={(value) => onChange(value, 'property')}
+            options={getCities(countries).options}
+            defaultValue={cities}
+            onChange={(value) => onChange(value, 'cities')}
           />
         }
-      />
+      />) : ("")}
+
       <div className="view_with__popup">
         <div className="popup_handler">
             <Button shape="circle" icon={<ClearOutlined />} onClick={onSearchReset}/>

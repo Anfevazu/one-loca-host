@@ -55,7 +55,7 @@ Loader.propTypes = {
 };
 
 Loader.defaultProps = {
-  fill: '#008489',
+  fill: '#FFCF2A',
 };
 
 export default Loader;

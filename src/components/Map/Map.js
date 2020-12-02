@@ -18,10 +18,10 @@ const Map = (props) => {
         <MapWrapper
           containerElement={<div style={{ height: '400px' }} />}
           mapElement={<div style={{ height: '100%' }} />}
-          defaultZoom={7}
+          defaultZoom={4}
           defaultCenter={{
-            lat: 41.8858,
-            lng: -75.7223,
+            lat: 5.5932547,
+            lng: -69.9773953,
           }}
         >
           <MarkerClusterer
@@ -37,10 +37,10 @@ const Map = (props) => {
         <MapWrapper
           containerElement={<div style={{ height: '400px' }} />}
           mapElement={<div style={{ height: '100%' }} />}
-          defaultZoom={8}
+          defaultZoom={4}
           defaultCenter={{
-            lat: 40.706877,
-            lng: -74.011265,
+            lat: 5.5932547,
+            lng: -69.9773953,
           }}
         >
           <HotelMapMarkerSingle location={location} />

@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Menu } from 'antd';
-
 import {
   HOME_PAGE,
   PRICING_PLAN_PAGE,
@@ -27,5 +26,4 @@ const MainMenu = ({ className }) => {
     </Menu>
   );
 };
-
 export default MainMenu;

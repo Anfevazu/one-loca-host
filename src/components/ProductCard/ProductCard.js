@@ -39,7 +39,8 @@ const favorityShow = window.location.pathname === '/profile' ? true : false;
 const PostGrid = ({
   title,
   rating,
-  location,
+  name,
+  last_name,
   country,
   city,
   profile,
@@ -48,6 +49,7 @@ const PostGrid = ({
   gallery,
   slug,
   link,
+  id
 }) => {
   return (
     <GridCard
@@ -59,6 +61,9 @@ const PostGrid = ({
           }}
         /> : <div></div>
       }
+      id={id}
+      name={name}
+      last_name={last_name}
       location={`${country}, ${city}`}
       title={<TextLink link={`${link}/${slug}`} content={title} />}
       profile={profile}
