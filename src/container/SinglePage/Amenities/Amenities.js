@@ -13,7 +13,7 @@ const Amenities = ({experiences, titleStyle, linkStyle }) => {
   return (
     <Element name="amenities" className="Amenities">
       <AmenitiesWrapper>
-        <Heading as="h2" content="Experiencias" {...titleStyle} />
+        <Heading as="h2" content="Servicios" {...titleStyle} />
         <AmenitiesArea>
         <CardExperiences experiences={experiences}/>
         </AmenitiesArea>

@@ -98,10 +98,12 @@ const RenderReservationForm = () => {
       'Content-Type' : 'application/json',
       'cache-control' : 'no-cache'
     }
+
     axios.post(api_url, {items, total_amount: total}, {headers : headers})
     .then(response =>{
       setVisible(true)
       const script = document.createElement('script');
+      console.log(script)
       script.src = 'https://www.mercadopago.com.co/integrations/v1/web-payment-checkout.js';
       script.async = true;
       script.setAttribute('data-preference-id', response.data.id);
@@ -109,9 +111,17 @@ const RenderReservationForm = () => {
     })
     .catch(error =>{
       const {response} = error
-      console.log(response)
+      console.log(error)
     })
   }
+
+  const handleOk = () => {
+    setVisible(false)
+  };
+
+  const handleCancel = () => {
+    setVisible(false);
+  };
 
   return (
     <ReservationFormWrapper className="form-container">
@@ -164,7 +174,8 @@ const RenderReservationForm = () => {
       <Modal
         centered
         visible={visible}
-        footer={null}
+        onOk={handleOk}
+        onCancel={handleCancel}
         >
            <Result
               key={1}

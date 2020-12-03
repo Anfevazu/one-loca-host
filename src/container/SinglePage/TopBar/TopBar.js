@@ -16,7 +16,7 @@ const topBarMenu = [
     target: 'overview',
   },
   {
-    name: 'Experiencias',
+    name: 'Servicios',
     target: 'amenities',
   },
   {

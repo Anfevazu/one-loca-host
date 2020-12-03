@@ -93,7 +93,7 @@ export const getHousType = {
 
 export const getExperiences = {
   id: 3,
-  name: 'Experiencias',
+  name: 'Tipo de viaje',
   identifier: 'experiences',
   options: experienceList(),
 };

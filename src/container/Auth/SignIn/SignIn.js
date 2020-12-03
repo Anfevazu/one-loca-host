@@ -1,12 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Divider } from 'antd';
-import { REGISTRATION_PAGE } from 'settings/constant';
 import SocialLogin from '../SocialLogin';
 import Wrapper, {
   Title,
   TitleInfo,
-  Text,
   FormWrapper,
   BannerWrapper,
 } from '../Auth.style';
@@ -28,14 +25,14 @@ const SignIn = () => {
     <Wrapper>
       <FormWrapper>
         <LogoIcon />
-        <Title style={{'font-size': '30px', 'text-align': 'center'}}>Bienvenido a One Local Host</Title>
-        <TitleInfo style={{'font-size': '18px', 'text-align': 'center'}}>Por favor ingresa a tu cuenta</TitleInfo>
+        <Title style={{fontSize: '30px', textAlign: 'center'}}>Bienvenido a One Local Host</Title>
+        <TitleInfo style={{fontSize: '18px', textAlign: 'center'}}>Por favor ingresa a tu cuenta</TitleInfo>
         <Divider></Divider>
         <SocialLogin />
-        <Text>
+        {/* <Text>
         ¿No tienes una cuenta?
           <Link to={REGISTRATION_PAGE}> Regístrate</Link>
-        </Text>
+        </Text> */}
       </FormWrapper>
       <BannerWrapper>
         <div

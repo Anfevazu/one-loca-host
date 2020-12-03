@@ -26,7 +26,6 @@ import HeaderWrapper, {
 } from './Header.style';
 
 import tripFinder from 'assets/images/logo.png';
-const avatarImg = `http://s3.amazonaws.com/redqteam.com/isomorphic-reloaded-image/profilepic.png`;
 
 const LogoIcon = () => (
   <img src={tripFinder} alt="One Local Host" style={{width: "140px"}}/>
@@ -34,14 +33,14 @@ const LogoIcon = () => (
 
 export default withRouter(function Header({ location }) {
   const [{ searchVisibility }] = useContext(LayoutContext);
-  const { loggedIn } = useContext(AuthContext);
+  const { loggedIn, user } = useContext(AuthContext);
   const { width } = useWindowSize();
   const [state, setState] = useState(false);
-
   const sidebarHandler = () => {
     setState(!state);
   };
 
+  const logo = user !== null ? user.picture : ""
   const headerType = location.pathname === '/' ? 'transparent' : 'default';
 
   return (
@@ -61,8 +60,8 @@ export default withRouter(function Header({ location }) {
             navMenu={<MainMenu />}
             authMenu={<AuthMenu />}
             isLogin={loggedIn}
-            avatar={<Logo src={avatarImg} />}
-            profileMenu={<ProfileMenu avatar={<Logo src={avatarImg} />} />}
+            avatar={<Logo src={logo || ""} />}
+            profileMenu={<ProfileMenu avatar={<Logo src={logo || ""} />} />}
             headerType={headerType}
             searchComponent={<NavbarSearch />}
             location={location}
@@ -100,7 +99,7 @@ export default withRouter(function Header({ location }) {
               {loggedIn ? (
                 <AvatarWrapper>
                   <AvatarImage>
-                    <Logo src={avatarImg} />
+                    <Logo src={logo} />
                   </AvatarImage>
                   <AvatarInfo>
                     <Text as="h3" content="Nova Scotia" />

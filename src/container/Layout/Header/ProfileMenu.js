@@ -8,16 +8,20 @@ import {
   AGENT_ACCOUNT_SETTINGS_PAGE,
   ADD_HOTEL_PAGE,
 } from 'settings/constant';
+import Text from 'components/UI/Text/Text';
 
 const ProfileMenu = ({ avatar, history }) => {
   const { logOut } = useContext(AuthContext);
   const [state, setState] = useState(false);
+
   const handleDropdown = () => {
     setState(!state);
   };
+
   const closeDropdown = () => {
     setState(false);
   };
+
   const dropdownRef = useRef(null);
   useOnClickOutside(dropdownRef, () => setState(false));
   function handleLogout() {
@@ -28,7 +32,7 @@ const ProfileMenu = ({ avatar, history }) => {
   return (
     <div className="avatar-dropdown" ref={dropdownRef}>
       <div className="dropdown-handler" onClick={handleDropdown}>
-        {avatar}
+       {avatar}
       </div>
 
       <Menu className={`dropdown-menu ${state ? 'active' : 'hide'}`}>

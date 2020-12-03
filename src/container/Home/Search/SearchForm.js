@@ -66,22 +66,6 @@ const SearchForm = ({ history }) => {
         <MapAutoComplete updatevalue={(value) => updatevalueFunc(value)} />
         <SearchPointer/>
       </ComponentWrapper>
-
-      {/* <ComponentWrapper>
-        <FaCalendarDay className="calendar" />
-        <DateRangePickerBox
-          item={calendarItem}
-          startDatePlaceholderText="Fecha inicio"
-          startDateId="startDateId-id-home"
-          endDateId="endDateId-id-home"
-          endDatePlaceholderText="Fecha Final"
-          updateSearchData={(setDateValue) => setSearchDate(setDateValue)}
-          showClearDates={true}
-          small={true}
-          numberOfMonths={2}
-        />
-      </ComponentWrapper> */}
-
       <ComponentWrapper>
         <FaUserCircle className="user-friends" />
         <SearchInput inputExperience={(value) => updateExperienceValue(value)}/>

@@ -1,7 +1,7 @@
-import firebase from "firebase/app"
+import firebase from "firebase/app";
 import 'firebase/analytics';
-import "firebase/firestore"
-
+import "firebase/firestore";
+import "firebase/auth";
 
 const config = {
   apiKey: "AIzaSyD-Suaxu6RSIxfs2bzXMtDgWyo23QavNKg",
@@ -16,5 +16,9 @@ const config = {
 
 firebase.initializeApp(config)
 firebase.analytics();
+
 export default firebase
 export const firestore = firebase.firestore()
+export const facebookAuthProvider = new firebase.auth.FacebookAuthProvider();
+export const twitterAuthProvider = new firebase.auth.TwitterAuthProvider();
+export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();

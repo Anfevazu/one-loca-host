@@ -5,7 +5,7 @@ const { Option } = Select;
 
 const SearchInput = (props) => {
   const { inputExperience } = props;
-  const [valueInput, setValueInput] = useState("Seleccione una Experiencia");
+  const [valueInput, setValueInput] = useState("Que quieres de tu viaje");
   const [children, setChildren] = useState([]);
 
   useEffect(() => {
