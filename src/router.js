@@ -15,7 +15,8 @@ import {
   AGENT_ACCOUNT_SETTINGS_PAGE,
   PRIVACY_PAGE,
   PRICING_PLAN_PAGE,
-  CONTACT_US
+  CONTACT_US,
+  CHECKOUT
 } from './settings/constant';
 
 /**
@@ -125,6 +126,15 @@ const routes = [
         import(/* webpackChunkName: "Pricing" */ './container/Pricing/Pricing'),
       loading: Loading,
       modules: ['Pricing'],
+    }),
+  },
+  {
+    path: CHECKOUT,
+    component: Loadable({
+      loader: () =>
+        import(/* webpackChunkName: "Pricing" */ './container/checkout/Checkout'),
+      loading: Loading,
+      modules: ['Checkout'],
     }),
   },
 ];

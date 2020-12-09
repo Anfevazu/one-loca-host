@@ -6,51 +6,14 @@ import Text from 'components/UI/Text/Text';
 import TextLink from 'components/UI/TextLink/TextLink';
 import RenderReservationForm from './RenderReservationForm';
 
-const CardHeader = ({ priceStyle, pricePeriodStyle, linkStyle }) => {
-  return (
-    <Fragment>
-      <Heading
-        content={
-          <Fragment>
-            $162 <Text as="span" content="/ night" {...pricePeriodStyle} />
-          </Fragment>
-        }
-        {...priceStyle}
-      />
-      <TextLink link="/#1" content="Contact Hotel" {...linkStyle} />
-    </Fragment>
-  );
-};
-
-export default function Reservation() {
+export default function Reservation({name, last_name, id, country, city}) {
   return (
     <Card
       hoverable
       className=""
-      content={<RenderReservationForm />}
+      content={<RenderReservationForm hostName={`${name} ${last_name}`} hostId={id} country={country} city={city}/>}
     />
   );
 }
 
-CardHeader.propTypes = {
-  priceStyle: PropTypes.object,
-  pricePeriodStyle: PropTypes.object,
-  linkStyle: PropTypes.object,
-};
 
-CardHeader.defaultProps = {
-  priceStyle: {
-    color: '#2C2C2C',
-    fontSize: '25px',
-    fontWeight: '700',
-  },
-  pricePeriodStyle: {
-    fontSize: '15px',
-    fontWeight: '400',
-  },
-  linkStyle: {
-    fontSize: '15px',
-    fontWeight: '700',
-    color: '#008489',
-  },
-};

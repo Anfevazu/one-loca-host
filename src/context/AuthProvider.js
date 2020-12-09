@@ -29,7 +29,11 @@ const AuthProvider = (props) => {
     localStorage.setItem("user", JSON.stringify(params))
     setUser(params);
     setLoggedIn(true);
-    history.push(`/`);
+    if(localStorage.getItem('order')){
+      history.push(`/checkout`);
+    }else{
+      history.push(`/`);
+    }
   };
 
   const signUp = (params) => {

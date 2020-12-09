@@ -128,7 +128,7 @@ const SinglePage = ({ match }) => {
                 top={202}
                 bottomBoundary="#reviewSection"
               >
-                <Reservation email="andresvz91@gmail.com" country_code="+57" phone="3003399134"/>
+                <Reservation name={name} last_name={last_name} id={id} country={country} city={city}/>
               </Sticky>
             ) : (
               <BottomReservation

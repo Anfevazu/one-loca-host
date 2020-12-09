@@ -8,7 +8,7 @@ const ReservationFormWrapper = styled.form`
 `;
 
 export const FieldWrapper = styled.div`
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   @media only screen and (max-width: 375px) {
     margin-bottom: 25px;
   }
