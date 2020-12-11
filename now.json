@@ -1,7 +1,8 @@
 {
   "build": {
     "env": {
-      "REACT_APP_GOOGLE_MAP_API_KEY": "your_google_map_api_key"
+      "REACT_APP_GOOGLE_MAP_API_KEY": "your_google_map_api_key",
+      "MERCADO_PAGO_API_KEY": "otra vaina "
     }
   }
 }

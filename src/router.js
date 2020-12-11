@@ -137,6 +137,15 @@ const routes = [
       modules: ['Checkout'],
     }),
   },
+  {
+    path: '/success',
+    component: Loadable({
+      loader: () =>
+        import(/* webpackChunkName: "Pricing" */ './container/Payments/Success'),
+      loading: Loading,
+      modules: ['Success'],
+    }),
+  },
 ];
 
 /**

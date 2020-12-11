@@ -8,14 +8,14 @@ import { isArray } from 'lodash';
 import moment from 'moment';
 import axios from 'axios'
 
-const key = "APP_USR-8238586441290981-081903-a754933b606d2ce16bc6a46cbb5d3bfb-165320074"
-const api_url = "https://api.mercadolibre.com/checkout/preferences?access_token="+key
-
+const api_url = process.env.REACT_APP_MERCADO_PAGO_API_KEY
 
 export default function Checkout() {
-  let plans = []
-  const  [newDate, setNewDate] = useState(null)
+
+  const  [url, setUrl] = useState(null)
   const  [data, setdata] = useState({})
+  const [payment, setPayment] = useState(null)
+
   let history = useHistory();
 
   useEffect(() => {
@@ -24,12 +24,12 @@ export default function Checkout() {
     }else{
       history.push('/')
     }
-
   }, []);
 
-  if(data.plans){
+  useEffect(() => {
+    if(data.plans){
     let items = [{
-      reference_code: "Contrata one local host"+' Host:'+data.hostName,
+      reference_code: "Contrata one local host"+' Host:'+ data.hostName+ ' Contratado por',
       unit_price: data.total,
       quantity: 1,
       description: 'Contrata one local host para planificar tu viaje',
@@ -39,18 +39,33 @@ export default function Checkout() {
       'Content-Type' : 'application/json',
       'cache-control' : 'no-cache'
     }
-    axios.post(api_url, {items, total_amount: data.total}, {headers : headers})
-    .then(response =>{
-      const script = document.createElement('script');
-      script.src = 'https://www.mercadopago.com.co/integrations/v1/web-payment-checkout.js';
-      script.async = true;
-      script.setAttribute('data-preference-id', response.data.id);
-      document.getElementById('mercadoForm').appendChild(script);
-    })
-    .catch(error =>{
-      const {response} = error
-      console.log(error)
-    })
+    let back_url = {
+      "success": "http://localhost:3000/success",
+      "failure": "http://www.tu-sitio/failure",
+      "pending": "http://www.tu-sitio/pending"
+  }
+  let body = {items,  "back_urls": back_url, "binary_mode": true, "auto_return": "approved"}
+  axios.post(api_url, body, {headers : headers})
+  .then(response =>{
+    setPayment(response.data)
+    setUrl(response.data.sandbox_init_point)
+  })
+  .catch(error =>{
+    const {response} = error
+    console.log(error)
+  })
+}}, [data]);
+
+
+  const handlerButton = () =>{
+    let buy = {
+      "order" : data,
+      "payment": payment.id
+    }
+    localStorage.removeItem("order")
+    localStorage.setItem("payment", JSON.stringify(buy))
+    window.open(url)
+    history.push('/')
   }
 
   return (
@@ -59,10 +74,9 @@ export default function Checkout() {
       icon={<AiFillSchedule style={{fontSize: '5rem', color: '#ffcf2a'}}/>}
       status="success"
       title=""/>
-<Container style={{textAlign: 'center'}}>
-        <Heading as="h2" content="Resumen de tu compra" style={{textAlign: 'center'}}/>
-        <Divider />
-
+        <Container style={{textAlign: 'center'}}>
+          <Heading as="h2" content="Resumen de tu compra" style={{textAlign: 'center'}}/>
+          <Divider />
           <Descriptions title="" bordered>
             <Descriptions.Item label="Plan" span={3}>{data.plans?.map((plan, index) =>{
               return <div key={index}>{plan.name}</div>
@@ -77,8 +91,8 @@ export default function Checkout() {
             <Descriptions.Item label="Total" span={3}> <b>${data.total} USD</b></Descriptions.Item>
           </Descriptions>
           <Divider />
-
-          <form action="/procesar-pago" method="POST" id="mercadoForm" style={{display: 'flex', flexDirection: 'row-reverse'}}/>
+          {/* <form action="/procesar-pago" method="POST" id="mercadoForm" style={{display: 'flex', flexDirection: 'row-reverse'}}/> */}
+          <Button type="primary" onClick={handlerButton}>Pagar</Button>
       </Container>
   </div>
 
