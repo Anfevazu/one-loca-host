@@ -204,11 +204,11 @@ export const PostImage = styled.div`
   // background-image: url(${singlePostBgImg});
   background-position: center center;
   background-size: cover;
-  height: 300px;
+  height: 500px;
   position: relative;
 
   @media only screen and (max-width: 767px) {
-    height: 406px;
+    height: 200px;
   }
 
   .image_gallery_button {

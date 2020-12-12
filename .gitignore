@@ -42,3 +42,4 @@ dist
 out
 .yarn
 .yarnrc
+.env

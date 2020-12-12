@@ -141,9 +141,18 @@ const routes = [
     path: '/success',
     component: Loadable({
       loader: () =>
-        import(/* webpackChunkName: "Pricing" */ './container/Payments/Success'),
+        import(/* webpackChunkName: "Success" */ './container/Payments/Success'),
       loading: Loading,
       modules: ['Success'],
+    }),
+  },
+  {
+    path: '/failure',
+    component: Loadable({
+      loader: () =>
+        import(/* webpackChunkName: "Failure" */ './container/Payments/Failure'),
+      loading: Loading,
+      modules: ['Failure'],
     }),
   },
 ];
