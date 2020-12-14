@@ -5,8 +5,7 @@ import { NavLink, withRouter } from 'react-router-dom';
 import { AuthContext } from 'context/AuthProvider';
 import {
   AGENT_PROFILE_PAGE,
-  AGENT_ACCOUNT_SETTINGS_PAGE,
-  ADD_HOTEL_PAGE,
+  AGENT_ACCOUNT_SETTINGS_PAGE
 } from 'settings/constant';
 import Text from 'components/UI/Text/Text';
 
@@ -37,16 +36,16 @@ const ProfileMenu = ({ avatar, history }) => {
 
       <Menu className={`dropdown-menu ${state ? 'active' : 'hide'}`}>
         <Menu.Item onClick={closeDropdown} key="0">
-          <NavLink to={AGENT_PROFILE_PAGE}>View Profile</NavLink>
+          <NavLink to={AGENT_PROFILE_PAGE}>Mis Viajes</NavLink>
         </Menu.Item>
-        <Menu.Item onClick={closeDropdown} key="1">
+        {/* <Menu.Item onClick={closeDropdown} key="1">
           <NavLink to={ADD_HOTEL_PAGE}>Add Hotel</NavLink>
-        </Menu.Item>
-        <Menu.Item onClick={closeDropdown} key="2">
-          <NavLink to={AGENT_ACCOUNT_SETTINGS_PAGE}>Account Settings</NavLink>
+        </Menu.Item> */}
+        <Menu.Item onClick={closeDropdown} key="1">
+          <NavLink to={AGENT_ACCOUNT_SETTINGS_PAGE}>Mi cuenta</NavLink>
         </Menu.Item>
         <Menu.Item key="3">
-          <button onClick={handleLogout}>Log Out</button>
+          <button onClick={handleLogout}>Salir</button>
         </Menu.Item>
       </Menu>
     </div>
