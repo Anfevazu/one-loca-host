@@ -143,33 +143,6 @@ const RenderReservationForm = ({hostName, hostId, country, city}) => {
     }else{
       history.push(LOGIN_PAGE);
     }
-    // let items = [{
-    //     reference_code: planName[plan],
-    //     unit_price: total,
-    //     quantity: 1,
-    //     description: planDesc[plan],
-    //     currency_id: "USD"
-    //   }]
-
-    // let headers = {
-    //   'Content-Type' : 'application/json',
-    //   'cache-control' : 'no-cache'
-    // }
-
-    // axios.post(api_url, {items, total_amount: total}, {headers : headers})
-    // .then(response =>{
-    //   setVisible(true)
-    //   const script = document.createElement('script');
-    //   console.log(script)
-    //   script.src = 'https://www.mercadopago.com.co/integrations/v1/web-payment-checkout.js';
-    //   script.async = true;
-    //   script.setAttribute('data-preference-id', response.data.id);
-    //   document.getElementById('mercadoForm').appendChild(script);
-    // })
-    // .catch(error =>{
-    //   const {response} = error
-    //   console.log(error)
-    // })
   }
 
   return (
@@ -211,9 +184,42 @@ const RenderReservationForm = ({hostName, hostId, country, city}) => {
           onChange={changeTypeTravel}
           placeholder="Seleccione tipo de viaje"
           >
-          <Option value="Negocios">Negocios</Option>
-          <Option value="Viaje Familiar">Viaje Familiar</Option>
-          <Option value="Viaje diversion">Viaje diversion</Option>
+            <Option value="Negocios ( solo )">
+              <Tooltip title="Negocios ( solo )" placement="right">
+                Negocios ( solo )
+              </Tooltip>
+            </Option>
+
+          <Option value="Negocios (con compañeros de trabajo)">
+              <Tooltip title="Negocios (con compañeros de trabajo)" placement="right">
+                Negocios (con compañeros de trabajo)
+              </Tooltip>
+          </Option>
+          <Option value="negocios (acompañado de la familia)">
+              <Tooltip title="negocios (acompañado de la familia)" placement="right">
+                negocios (acompañado de la familia)
+              </Tooltip>
+          </Option>
+          <Option value=" Vacaciones (solo)">
+              <Tooltip title=" Vacaciones (solo)" placement="right">
+                 Vacaciones (solo)
+              </Tooltip>
+          </Option>
+          <Option value="Vacaciones (en pareja)">
+              <Tooltip title="Vacaciones (en pareja)" placement="right">
+                Vacaciones (en pareja)
+              </Tooltip>
+          </Option>
+          <Option value="Vacaciones (con amigos)">
+              <Tooltip title="Vacaciones (con amigos)" placement="right">
+                Vacaciones (con amigos)
+              </Tooltip>
+          </Option>
+          <Option value="Vacaciones (con familia)">
+              <Tooltip title="Vacaciones (con familia)" placement="right">
+                Vacaciones (con familia)
+              </Tooltip>
+          </Option>
           <Option value="Otro">Otro</Option>
         </Select>
       </FieldWrapper>
@@ -228,23 +234,6 @@ const RenderReservationForm = ({hostName, hostId, country, city}) => {
             Contratar Host
           </Button>
       </FieldWrapper>
-
-      {/* <Modal
-        centered
-        visible={visible}
-        onOk={handleOk}
-        onCancel={handleCancel}
-        >
-           <Result
-              key={1}
-              status="info"
-              title="Contratar Host"
-              subTitle={`Plan: ${planName[plan]} - Valor: ${total} USD - Fecha: ${date}.`}
-              extra={[
-                <form key={2} action="/procesar-pago" method="POST" id="mercadoForm" />,
-              ]}
-            />
-        </Modal> */}
     </ReservationFormWrapper>
 
   );
