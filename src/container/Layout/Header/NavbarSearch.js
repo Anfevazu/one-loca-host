@@ -9,15 +9,19 @@ import tripFinder from 'assets/images/logo.png';
 import Heading from 'components/UI/Heading/Heading';
 import useWindowSize from 'library/hooks/useWindowSize';
 
-const NavbarSearch = () => {
+const NavbarSearch = ({location}) => {
   const { width } = useWindowSize();
 
   return (
-    <NavbarSearchWrapper className="navbar_search">
+    <>
+    { location.pathname !== '/' ?
+      (<NavbarSearchWrapper className="navbar_search">
       { width > 991 ?
       (<LogoIcon />) : ""}
       <Heading as="h3" content="¡Encuentra tu anfitrión local a la medida de tus necesidades!" style={{textAlign: 'center'}}/>
-    </NavbarSearchWrapper>
+    </NavbarSearchWrapper>) : ""
+    }
+  </>
   );
 };
 
