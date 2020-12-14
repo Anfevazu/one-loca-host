@@ -66,6 +66,7 @@ export default withRouter(function Header({ location }) {
             searchComponent={<NavbarSearch />}
             location={location}
             searchVisibility={searchVisibility}
+            user={user}
           />
         ) : (
           <MobileNavbar className={headerType}>
@@ -98,6 +99,7 @@ export default withRouter(function Header({ location }) {
               </CloseDrawer>
               {loggedIn ? (
                 <AvatarWrapper>
+                  Andres VAsquez
                   <AvatarImage>
                     <Logo src={logo} />
                   </AvatarImage>

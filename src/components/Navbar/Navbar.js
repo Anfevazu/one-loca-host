@@ -21,6 +21,7 @@ const Navbar = ({
   searchComponent,
   location,
   searchVisibility,
+  user
 }) => {
   const addAllClasses = ['navbar'];
   if (className) {
@@ -46,7 +47,7 @@ const Navbar = ({
             <MenuWrapper className="main_menu">{navMenu}</MenuWrapper>
           )}
           {isLogin && avatar ? (
-            <AvatarWrapper>{profileMenu}</AvatarWrapper>
+            <AvatarWrapper> <span className="name-guest">{user.name} </span> {profileMenu} </AvatarWrapper>
           ) : (
             authMenu && (
               <AuthWrapper className="auth_menu">{authMenu}</AuthWrapper>

@@ -77,10 +77,21 @@ export const MenuArea = styled.div`
 
 export const AvatarWrapper = styled.div`
   margin-left: 46px;
-
+  display: flex !important;
+  .name-guest {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-size: 1rem;
+    color: black;
+    font-family: 'Lato',sans-serif;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
   .avatar-dropdown {
     position: relative;
-
+    display: flex;
     .dropdown-handler {
       width: 40px;
       height: 40px;
