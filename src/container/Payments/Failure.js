@@ -40,7 +40,7 @@ export default function Failure({history}) {
       subTitle="Por favor valide sus datos e intente nuevamente"
       extra={[
         <Button type="primary" key="console" onClick={goHome} style={{backgroundColor: '#ffcf2c', borderColor: '#ffcf2c'}}>
-          Ir Inicio
+          Tu Viaje
         </Button>
       ]}
     />)}

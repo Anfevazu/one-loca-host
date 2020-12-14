@@ -14,13 +14,13 @@ const FooterMenu = () => {
   return (
     <Menu>
       <Menu.Item key="0">
-        <NavLink to={`${HOME_PAGE}`}>Inicio</NavLink>
+        <NavLink to={`${HOME_PAGE}`}>Tu Viaje</NavLink>
       </Menu.Item>
       <Menu.Item key="1">
         <NavLink to={`${LISTING_POSTS_PAGE}`}>Quiero ser host</NavLink>
       </Menu.Item>
       <Menu.Item key="2">
-        <NavLink to={`${PRICING_PLAN_PAGE}`}>Precios</NavLink>
+        <NavLink to={`${PRICING_PLAN_PAGE}`}>Cómo Funciona</NavLink>
       </Menu.Item>
       <Menu.Item key="3">
         <NavLink to={`${CONTACT_US}`}>Contáctanos</NavLink>

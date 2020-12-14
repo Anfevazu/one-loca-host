@@ -11,7 +11,7 @@ const MainMenu = ({ className }) => {
     <Menu className={className}>
       <Menu.Item key="0">
         <NavLink exact to={`${HOME_PAGE}`} className="menu-items">
-          Inicio
+          Tu Viaje
         </NavLink>
       </Menu.Item>
       <Menu.Item key="1">
@@ -21,7 +21,7 @@ const MainMenu = ({ className }) => {
         <NavLink to={`${AGENT_PROFILE_PAGE}`}>Agent</NavLink>
       </Menu.Item> */}
       <Menu.Item key="3">
-        <NavLink to={`${PRICING_PLAN_PAGE}`}>Precios</NavLink>
+        <NavLink to={`${PRICING_PLAN_PAGE}`}>Cómo Funciona</NavLink>
       </Menu.Item>
     </Menu>
   );

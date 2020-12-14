@@ -18,7 +18,6 @@ import {
   priceInit,
   calenderItem,
   getLanguages,
-  getHousType,
 } from './SearchParams';
 import {
   FilterArea,
@@ -238,11 +237,11 @@ const FilterDrawer = ({ history, location }) => {
                 </AccordionItemButton>
               </AccordionItemHeading>
               <AccordionItemPanel>
-                <Checkbox.Group
+                {/* <Checkbox.Group
                   options={getHousType.options}
                   value={propertyType}
                   onChange={onChangeProperty}
-                />
+                /> */}
               </AccordionItemPanel>
             </AccordionItem>
             {/* End of property type filter element */}

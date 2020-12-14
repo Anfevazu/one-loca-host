@@ -76,7 +76,7 @@ const SearchForm = ({ history }) => {
         htmlType="submit"
         size="large"
         onClick={goToSearchPage}>
-        <span style={{color: "#2a537e"}}>Buscar host</span>
+        <span style={{color: "#2a537e"}}>Buscar Anfitrión</span>
       </Button>
     </FormWrapper>
   );

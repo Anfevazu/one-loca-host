@@ -16,7 +16,7 @@ const CategroySearchWrapper = styled.div`
       button.ant-btn {
         height: 38px;
         font-size: 15px;
-        border-radius: 3px;
+        border-radius: 15px;
         color: ${themeGet('text.0', '#2C2C2C')};
         border: 1px solid ${themeGet('border.3', '#E6E6E6')};
         &:hover {

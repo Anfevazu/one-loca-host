@@ -15,17 +15,17 @@ const languagesList = () => {
   return  optTmp;
 }
 
-const houstTypeList = () => {
-  let housTmp = []
-  let queryRef = firestore.collection("type_houst");
-  queryRef.get()
-  .then((doc) => {
-    doc.forEach(opt => {
-        housTmp.push({label: opt.data().name, value:opt.data().name})
-    })
-  })
-  return housTmp;
-}
+// const houstTypeList = () => {
+//   let housTmp = []
+//   let queryRef = firestore.collection("type_houst");
+//   queryRef.get()
+//   .then((doc) => {
+//     doc.forEach(opt => {
+//         housTmp.push({label: opt.data().name, value:opt.data().name})
+//     })
+//   })
+//   return housTmp;
+// }
 
 const experienceList = () => {
   let expTmp = []
@@ -84,12 +84,12 @@ export const getLanguages =  {
   options: languagesList()
 };
 
-export const getHousType = {
-  id: 2,
-  name: 'Tipo de Host',
-  identifier: 'houst_type',
-  options: houstTypeList(),
-};
+// export const getHousType = {
+//   id: 2,
+//   name: 'Tipo de Host',
+//   identifier: 'houst_type',
+//   options: houstTypeList(),
+// };
 
 export const getExperiences = {
   id: 3,

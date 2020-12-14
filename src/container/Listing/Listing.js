@@ -24,7 +24,6 @@ import { firestore } from '../../firebaseConfig';
     country: urlParams.get('countries'),
     city: urlParams.get('cities'),
     experience : urlParams.get('experiences'),
-    houst_type : urlParams.get('houst_type'),
     languages: urlParams.get('languages')
   }
 
@@ -72,10 +71,6 @@ import { firestore } from '../../firebaseConfig';
       queryRef = firestore.collection("houst").where("category", "in", params.experience.split(","))
       getData(queryRef)
     }
-    if(params.houst_type){
-      queryRef = firestore.collection("houst").where("houst_type", "in", params.houst_type.split(","))
-      getData(queryRef)
-    }
     if(params.languages){
       queryRef = firestore.collection("houst").where("languages", "array-contains-any", params.languages.split(","))
       getData(queryRef)
@@ -117,7 +112,8 @@ import { firestore } from '../../firebaseConfig';
       <Fragment>
         <PostsWrapper className={width > 767 && showMap ? 'col-12' : 'col-24'}>
           {data.length > 0  ?
-            (<SectionGrid
+            (
+            <SectionGrid
             link={SINGLE_POST_PAGE}
             columnWidth={columnWidth}
             data={data}

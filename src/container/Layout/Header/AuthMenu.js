@@ -11,7 +11,7 @@ const AuthMenu = ({ className }) => {
         <NavLink to={LOGIN_PAGE}>Login</NavLink>
       </Menu.Item> */}
       <Menu.Item key="1">
-      <NavLink to={LOGIN_PAGE}>Login</NavLink>
+      <NavLink to={LOGIN_PAGE}>Registrate</NavLink>
       </Menu.Item>
     </Menu>
   );

@@ -34,7 +34,7 @@ render(){
   return (
     <Container fluid={true}>
       <SectionTitle
-        title={<Heading content="Mejores houst" />}
+        title={<Heading content="Anfitriones Locales Destacados" />}
         link={<TextLink link={LISTING_POSTS_PAGE} content="Ver Mas" />}
       />
       <SectionGrid

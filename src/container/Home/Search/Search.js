@@ -43,11 +43,11 @@ const SearchArea = ({ searchTitleStyle, searchDescriptionStyle }) => {
         <SearchWrapper>
           <Heading
             {...searchTitleStyle}
-            content="Buscas un lugar encuentras un amigo"
+            content="Crea junto a tu anfitrión local un viaje 100% a la medida"
           />
           <Text
             {...searchDescriptionStyle}
-            content="compara a más de 200 host y conoce los lugares más increibles junto a los mejores ."
+            content="Encuentra anfitriones locales alrededor del mundo expertos en potenciar tu experiencia antes, durante y después de tu viaje."
           />
           <SearchForm />
         </SearchWrapper>

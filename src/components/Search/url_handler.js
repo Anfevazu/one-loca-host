@@ -34,10 +34,10 @@ export function setStateToUrl(state) {
           urlData[key] =
             state[key] && state[key].length ? state[key].join() : null;
           break;
-        case 'houst_type':
-          urlData[key] =
-            state[key] && state[key].length ? state[key].join() : null;
-          break;
+        // case 'houst_type':
+        //   urlData[key] =
+        //     state[key] && state[key].length ? state[key].join() : null;
+        //   break;
         case 'experiences':
           urlData[key] =
             state[key] && state[key].length ? state[key].join() : null;
@@ -101,12 +101,12 @@ export function getStateFromUrl(location) {
               ? urlData[key].split(',')
               : [];
           break;
-        case 'houst_type':
-          state[key] =
-            urlData[key] && urlData[key] !== 'null'
-              ? urlData[key].split(',')
-              : [];
-          break;
+        // case 'houst_type':
+        //   state[key] =
+        //     urlData[key] && urlData[key] !== 'null'
+        //       ? urlData[key].split(',')
+        //       : [];
+        //   break;
         case 'location_lat':
           if (urlData['location_lat']) {
             state['location'] = {};

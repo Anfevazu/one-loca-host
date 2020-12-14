@@ -6,7 +6,6 @@ import { setStateToUrl, getStateFromUrl } from '../url_handler';
 import {
   getExperiences,
   getLanguages,
-  getHousType,
   getCountries,
   getCities
 } from '../SearchParams';
@@ -17,12 +16,12 @@ const CategotySearch = ({ history, location }) => {
 
   const state = {
     languages: searchParams.languages || [],
-    houst_type: searchParams.houst_type || [],
+    // houst_type: searchParams.houst_type || [],
     experiences: searchParams.experiences || [],
     countries: searchParams.countries || [],
     cities: searchParams.cities || [],
   };
-  const { languages, houst_type, experiences, countries, cities } = state;
+  const { languages, experiences, countries, cities } = state;
   const onChange = (value, type) => {
     const query = {
       ...state,
@@ -64,7 +63,7 @@ const CategotySearch = ({ history, location }) => {
         }
       />
 
-      <ViewWithPopup
+      {/* <ViewWithPopup
         className={houst_type.length ? 'activated' : ''}
         key={getHousType.id}
         noView={true}
@@ -81,7 +80,7 @@ const CategotySearch = ({ history, location }) => {
             onChange={(value) => onChange(value, 'houst_type')}
           />
         }
-      />
+      /> */}
 
       <ViewWithPopup
         className={experiences.length ? 'activated' : ''}

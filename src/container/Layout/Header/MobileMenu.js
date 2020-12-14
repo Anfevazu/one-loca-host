@@ -16,7 +16,7 @@ const MobileMenu = ({ className }) => {
     <Menu className={className}>
       <Menu.Item key="0">
         <NavLink exact to={HOME_PAGE}>
-          Inicio
+        Tu Viaje
         </NavLink>
       </Menu.Item>
       <Menu.Item key="1">

@@ -308,7 +308,7 @@ export const NavbarSearchWrapper = styled.div`
   display: flex;
   align-items: center;
   position: relative;
-  max-width: 430px;
+  max-width: 900px;
   width: 100%;
   margin-left: 30px;
 
