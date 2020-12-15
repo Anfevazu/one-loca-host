@@ -56,7 +56,9 @@ const SinglePage = ({ match }) => {
     experiences,
     author,
     profile,
-    picture
+    picture,
+    cellphone,
+    country_code
   } = data;
 
   const background = gallery.length > 0 ? gallery[0].url : singlePostBgImg
@@ -128,7 +130,7 @@ const SinglePage = ({ match }) => {
                 top={202}
                 bottomBoundary="#reviewSection"
               >
-                <Reservation name={name} last_name={last_name} id={id} country={country} city={city}/>
+                <Reservation name={name} last_name={last_name} id={id} country={country} city={city} cellphone={cellphone} country_code={country_code}/>
               </Sticky>
             ) : (
               <BottomReservation

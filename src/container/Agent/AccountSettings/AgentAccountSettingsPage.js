@@ -8,7 +8,7 @@ import ChangePassWord from './ChangePassWordForm';
 import {
   AGENT_IMAGE_EDIT_PAGE,
   AGENT_PASSWORD_CHANGE_PAGE,
-  AGENT_PROFILE_PAGE,
+  MY_TRIPS,
 } from 'settings/constant';
 import AccountSettingWrapper, {
   AccountSidebar,
@@ -79,7 +79,7 @@ export default function AgentAccountSettingsPage(props) {
                 />
                 <ContentWrapper>
                   <AgentName>Aziz Acharki Ahmedh</AgentName>
-                  <Link to={AGENT_PROFILE_PAGE}>View profile</Link>
+                  <Link to={MY_TRIPS}>View profile</Link>
                 </ContentWrapper>
               </AgentAvatar>
               <AccountSettingNavLink {...props} />

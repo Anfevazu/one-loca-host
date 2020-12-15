@@ -4,10 +4,9 @@ import useOnClickOutside from 'library/hooks/useOnClickOutside';
 import { NavLink, withRouter } from 'react-router-dom';
 import { AuthContext } from 'context/AuthProvider';
 import {
-  AGENT_PROFILE_PAGE,
+  MY_TRIPS,
   AGENT_ACCOUNT_SETTINGS_PAGE
 } from 'settings/constant';
-import Text from 'components/UI/Text/Text';
 
 const ProfileMenu = ({ avatar, history }) => {
   const { logOut } = useContext(AuthContext);
@@ -36,7 +35,7 @@ const ProfileMenu = ({ avatar, history }) => {
 
       <Menu className={`dropdown-menu ${state ? 'active' : 'hide'}`}>
         <Menu.Item onClick={closeDropdown} key="0">
-          <NavLink to={AGENT_PROFILE_PAGE}>Mis Viajes</NavLink>
+          <NavLink to={MY_TRIPS}>Mis Viajes</NavLink>
         </Menu.Item>
         {/* <Menu.Item onClick={closeDropdown} key="1">
           <NavLink to={ADD_HOTEL_PAGE}>Add Hotel</NavLink>

@@ -45,7 +45,7 @@ plans.forEach((plan, index) => {
   </Option>);
 });
 
-const RenderReservationForm = ({hostName, hostId, country, city}) => {
+const RenderReservationForm = ({hostName, hostId, country, city, cellphone, country_code}) => {
   let history = useHistory();
   const { loggedIn } = useContext(AuthContext);
   let buyObject = []
@@ -134,7 +134,9 @@ const RenderReservationForm = ({hostName, hostId, country, city}) => {
       hostId: hostId,
       hostName: hostName,
       country: country,
-      city: city
+      city: city,
+      hostPhone: cellphone,
+      hostCountryCode: country_code
     }
     localStorage.setItem("order", JSON.stringify(order))
 

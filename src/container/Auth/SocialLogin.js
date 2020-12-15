@@ -134,7 +134,7 @@ const SocialLogin = () => {
   }
 
   return (
-    <div>
+    <>
       <Row gutter={10}>
           <Button
             loading={state.facebook}
@@ -172,7 +172,7 @@ const SocialLogin = () => {
             Google
           </Button>
       </Row>
-    </div>
+    </>
   );
 };
 

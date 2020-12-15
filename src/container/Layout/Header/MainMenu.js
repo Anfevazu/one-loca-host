@@ -18,7 +18,7 @@ const MainMenu = ({ className }) => {
         <a href="https://houst.onelocalhost.com"  target="_blank" rel="noopener noreferrer">Quiero ser host</a>
       </Menu.Item>
       {/* <Menu.Item key="2">
-        <NavLink to={`${AGENT_PROFILE_PAGE}`}>Agent</NavLink>
+        <NavLink to={`${MY_TRIPS}`}>Agent</NavLink>
       </Menu.Item> */}
       <Menu.Item key="3">
         <NavLink to={`${PRICING_PLAN_PAGE}`}>Cómo Funciona</NavLink>

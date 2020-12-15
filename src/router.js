@@ -11,7 +11,7 @@ import {
   LISTING_POSTS_PAGE,
   SINGLE_POST_PAGE,
   ADD_HOTEL_PAGE,
-  AGENT_PROFILE_PAGE,
+  MY_TRIPS,
   AGENT_ACCOUNT_SETTINGS_PAGE,
   PRIVACY_PAGE,
   PRICING_PLAN_PAGE,
@@ -91,7 +91,7 @@ const routes = [
     }),
   },
   {
-    path: AGENT_PROFILE_PAGE,
+    path: MY_TRIPS,
     component: Loadable({
       loader: () =>
         import(
@@ -132,7 +132,7 @@ const routes = [
     path: CHECKOUT,
     component: Loadable({
       loader: () =>
-        import(/* webpackChunkName: "Pricing" */ './container/checkout/Checkout'),
+        import(/* webpackChunkName: "Pricing" */ './container/Checkout/Checkout'),
       loading: Loading,
       modules: ['Checkout'],
     }),

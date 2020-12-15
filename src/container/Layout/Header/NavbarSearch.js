@@ -1,9 +1,5 @@
 import React from 'react';
-import isEmpty from 'lodash/isEmpty';
 import { withRouter } from 'react-router-dom';
-import { setStateToUrl, getStateFromUrl } from 'library/helpers/url_handler';
-import { mapDataHelper } from 'components/Map/mapDataHelper';
-import { LISTING_POSTS_PAGE } from 'settings/constant';
 import { NavbarSearchWrapper } from './Header.style';
 import tripFinder from 'assets/images/logo.png';
 import Heading from 'components/UI/Heading/Heading';

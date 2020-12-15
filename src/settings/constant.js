@@ -7,13 +7,13 @@ export const LISTING_POSTS_PAGE = '/listing';
 export const SINGLE_POST_PAGE = '/host-info';
 
 // Agent Profile Page Section
-export const AGENT_PROFILE_PAGE = '/profile';
+export const MY_TRIPS = '/mytrips';
 export const AGENT_ACCOUNT_SETTINGS_PAGE = '/account-settings';
 export const AGENT_PROFILE_EDIT_PAGE = '/edit';
 export const AGENT_IMAGE_EDIT_PAGE = '/change-image';
 export const AGENT_PASSWORD_CHANGE_PAGE = '/change-password';
 export const AGENT_PROFILE_DELETE = '/delete';
-export const AGENT_PROFILE_FAVOURITE = '/favourite-post';
+export const AGENT_PROFILE_FAVOURITE = '/history-trips';
 export const AGENT_PROFILE_CONTACT = '/contact';
 
 // Other Pages

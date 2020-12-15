@@ -34,7 +34,7 @@ export default function Checkout() {
   useEffect(() => {
     if(data.plans){
     let items = [{
-      reference_code: "Contrata one local host"+' Host:'+ data.hostName+ ' Contratado por',
+      reference_code: `Contrata one local host, Host: ${data.hostName}`,
       unit_price: data.total +  (data.total * iva ),
       quantity: 1,
       description: 'Contrata one local host para planificar tu viaje',
@@ -77,7 +77,7 @@ export default function Checkout() {
     })
     .catch(error =>{
       const {response} = error
-      console.log(error)
+      console.log(response)
     })
   }}, [data]);
 

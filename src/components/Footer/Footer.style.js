@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { themeGet } from '@styled-system/theme-get';
 
-import FooterBg from './footer-bg.svg';
+import FooterBg from './footer.png';
 
 const FooterWrapper = styled.footer`
   width: 100%;

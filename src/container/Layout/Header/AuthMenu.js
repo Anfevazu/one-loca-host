@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Menu } from 'antd';
 
-import { LOGIN_PAGE, REGISTRATION_PAGE } from 'settings/constant';
+import { LOGIN_PAGE } from 'settings/constant';
 
 const AuthMenu = ({ className }) => {
   return (

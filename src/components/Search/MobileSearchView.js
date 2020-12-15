@@ -87,9 +87,7 @@ const FilterDrawer = ({ history, location }) => {
   const onChangeAmenity = (checkedAmenityValue) => {
     setAmenities(checkedAmenityValue);
   };
-  const onChangeProperty = (checkedPropertValue) => {
-    setPropertyType(checkedPropertValue);
-  };
+
   const handlePriceChange = (setValue) => {
     const maxValue = setValue ? setValue[1] : price.defaultMin;
     const minValue = setValue ? setValue[0] : price.defaultMax;
