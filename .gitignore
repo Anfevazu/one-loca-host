@@ -42,4 +42,7 @@ dist
 out
 .yarn
 .yarnrc
-.env
+.env.dev
+.env.local
+.env.production
+.example.env

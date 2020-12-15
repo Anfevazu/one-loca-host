@@ -44,7 +44,11 @@
 		"test": "react-app-rewired test",
 		"serve": "serve -s build",
 		"eject": "react-scripts eject",
-		"host:firebase": "firebase deploy"
+		"host:firebase": "firebase deploy",
+		"build:dev": "env-cmd -f ./.env.dev react-app-rewired build",
+		"build:prod": "env-cmd -f ./.env.production react-app-rewired build",
+		"start:dev": "env-cmd -f ./.env.dev react-app-rewired start",
+		"start:local": "env-cmd -f ./.env.local react-app-rewired start"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
