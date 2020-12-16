@@ -13,7 +13,6 @@ export default function Success({history}) {
   const  [payment, setPayment] = useState(null)
   const [loading, setLoading] = useState(true)
   var date = moment(new Date()).format('LLLL');
-  console.log(process.env)
   useEffect(() => {
     if(localStorage.getItem("last_payment")){
       setPayment(localStorage.getItem("last_payment"))
@@ -21,7 +20,7 @@ export default function Success({history}) {
     }else{
       history.push('/')
     }
-  },[]);
+  },[]);// eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if(payment){

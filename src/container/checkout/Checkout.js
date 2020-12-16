@@ -29,7 +29,7 @@ export default function Checkout() {
     }else{
       history.push('/')
     }
-  }, []);
+  }, []);// eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if(data.plans){
@@ -79,7 +79,7 @@ export default function Checkout() {
       const {response} = error
       console.log(response)
     })
-  }}, [data]);
+  }}, [data]);// eslint-disable-line react-hooks/exhaustive-deps
 
   const handlerButton = () =>{
     let newId = firestore.collection("contract_houst").doc().id

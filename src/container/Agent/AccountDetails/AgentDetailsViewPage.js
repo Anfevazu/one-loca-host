@@ -1,9 +1,8 @@
-import React, { useContext, Fragment } from 'react';
+import React from 'react';
 import { Route, NavLink } from 'react-router-dom';
 import { Menu } from 'antd';
 import Container from 'components/UI/Container/Container';
-import Loader from 'components/Loader/Loader';
-import AuthProvider, { AuthContext } from 'context/AuthProvider';
+import AuthProvider from 'context/AuthProvider';
 import ActiveTripsLists from './ActiveTripsLists';
 import HistoryTripsList from './HistoryTripsList';
 import {
@@ -13,7 +12,6 @@ import AgentDetailsPage, { NavigationArea } from './AgentDetails.style';
 
 const ProfileNavigation = (props) => {
   const { match, className } = props;
-  console.log(match)
   return (
     <NavigationArea>
       <Container fluid={true}>

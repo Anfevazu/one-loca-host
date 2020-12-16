@@ -9,36 +9,15 @@ import Loader from 'components/Loader/Loader';
 import moment from 'moment';
 import 'moment/locale/es'  // without this line it didn't work
 import { isArray } from 'lodash';
-moment.locale('es')
 
+moment.locale('es')
 const { Meta } = Card;
 
-const data1 = [
-  {
-    title: 'Title 1',
-  },
-  {
-    title: 'Title 2',
-  },
-  {
-    title: 'Title 3',
-  },
-  {
-    title: 'Title 4',
-  },
-  {
-    title: 'Title 5',
-  },
-  {
-    title: 'Title 6',
-  },
-];
-
 const ActiveTripsLists = ({history}) => {
-
-  const { user, loggedIn } = useContext(AuthContext);
-  const [data, setData] = useState(data1)
+  const { user } = useContext(AuthContext);
+  const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
+
   useEffect(() => {
     if(user.id){
       let tmpData =[];
@@ -57,7 +36,7 @@ const ActiveTripsLists = ({history}) => {
       })
     }
 
-  }, [user]);
+  }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const getDate = (date) => {
     if(isArray(date)){
@@ -65,11 +44,27 @@ const ActiveTripsLists = ({history}) => {
       let momentDate1 = moment(newDate1).format('ll');
       let newDate2 = new Date(date[1])
       let momentDate2 = moment(newDate2).format('ll');
-      return `${momentDate1}-${momentDate2}`
+      return `${momentDate1} - ${momentDate2}`
     }else{
       let newDate = new Date(date)
       let momentDate = moment(newDate).format('ll');
       return momentDate
+    }
+  }
+
+  const isMobile = () => {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(window.navigator.userAgent)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  const goToWs = (item) => {
+    if (isMobile()) {
+     return `${process.env.REACT_APP_WS_LINK}${item.order.hostCountryCode}${item.order.hostPhone}`;
+    } else {
+      return `https://web.whatsapp.com/send?phone=${item.order.hostCountryCode}${item.order.hostPhone}`;
     }
   }
 
@@ -100,8 +95,8 @@ const ActiveTripsLists = ({history}) => {
             }
             actions={[
               <Tooltip title="Contactar" placement="top">
-                <a href={`https://wa.me/${item.order.hostCountryCode}${item.order.hostPhone}`} target="_blank" style={{color: '#45c455',fontSize: '1.2rem'}}>
-                  <WhatsAppOutlined key="edit"/>,
+                <a href={goToWs(item)} style={{color: '#45c455',fontSize: '1.2rem'}} target="_blank" rel="noopener noreferrer">
+                  <WhatsAppOutlined key="edit"/>
                 </a>
               </Tooltip>,
               <Tooltip title="Abrir Viaje" placement="top">
@@ -110,8 +105,8 @@ const ActiveTripsLists = ({history}) => {
                 </Link>
               </Tooltip>
             ]}>
-          <Meta title={`${item.order.city}, ${item.order.country}`} description={getDate(item.order.date)} />
-           <span style={{color: '#aeaeae'}}>Anfitrion :</span> {item.order.hostName}
+            <Meta title={`${item.order.city}, ${item.order.country}`} description={getDate(item.order.date)} />
+            <span style={{color: '#aeaeae'}}>Anfitrion :</span> {item.order.hostName}
           </Card>
         </List.Item>
       )}

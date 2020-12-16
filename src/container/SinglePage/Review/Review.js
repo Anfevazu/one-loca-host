@@ -42,7 +42,7 @@ const Review = (props) => {
       })
       setReviews(reviewTmp)
     })
-  }, []);
+  }, []);// eslint-disable-line react-hooks/exhaustive-deps
 
 
   return (

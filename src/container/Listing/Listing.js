@@ -81,7 +81,7 @@ import { firestore } from '../../firebaseConfig';
       getData(queryRef)
     }
     setLoading(false)
-  }, [location.search]);
+  }, [location.search]);// eslint-disable-line react-hooks/exhaustive-deps
 
   if (showMap) {
     columnWidth = [1 / 1, 1 / 2, 1 / 2, 1 / 2, 1 / 3];

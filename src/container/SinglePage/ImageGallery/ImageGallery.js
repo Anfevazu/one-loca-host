@@ -9,7 +9,7 @@ const PostImageGallery = ({images}) => {
     images.forEach(img => {
       imgs.push({original: img.url, thumbnail: img.url})
     });
-  }, [])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
 
   return (

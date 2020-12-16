@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const HistoryTripsList = () => {
+const HistoryTripsList = (props) => {
   return (
 "history"
   );

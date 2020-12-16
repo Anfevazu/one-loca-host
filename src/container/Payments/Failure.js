@@ -13,14 +13,14 @@ export default function Failure({history}) {
     }else{
       history.push('/')
     }
-  },[]);
+  },[]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if(payment){
       firestore.collection("contract_houst").doc(payment).set({status: "REJECTED"}, {merge: true})
       setLoading(false)
     }
-  },[payment]);
+  },[payment]); // eslint-disable-line react-hooks/exhaustive-deps
 
 
   const goHome = () => {
