@@ -11,7 +11,7 @@ import {
   IoLogoInstagram,
 } from 'react-icons/io';
 import { Popover } from 'antd';
-import {SocialAccount} from '../../container/Agent/AccountDetails/AgentDetails.style';
+import {SocialAccount} from '../../container/Profile/TripsDetail/HistoryTripsDetails.style';
 
 const Footer = ({ logo, menu, bgSrc, copyright, className, path }) => {
   return (

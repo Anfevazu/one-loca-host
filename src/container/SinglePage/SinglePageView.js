@@ -16,7 +16,7 @@ import SinglePageWrapper, { PostImage } from './SinglePageView.style';
 import PostImageGallery from './ImageGallery/ImageGallery';
 import isEmpty from 'lodash/isEmpty';
 import Image from 'components/UI/Image/Image';
-import { ProfileImage } from '../Agent/AccountDetails/AgentDetails.style';
+import { ProfileImage } from '../Profile/TripsDetail/HistoryTripsDetails.style';
 import { firestore } from '../../firebaseConfig';
 import singlePostBgImg from '../../assets/images/single-post-bg.jpg';
 import {FALLBACK_IMG} from '../../settings/constant'

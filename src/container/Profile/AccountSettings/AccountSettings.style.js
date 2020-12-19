@@ -89,6 +89,10 @@ export const SidebarMenuWrapper = styled.div`
 `;
 
 export const AgentAvatar = styled.div`
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
   background-color: ${themeGet('color.2', '#F7F7F7')};
   padding: 45px 30px 30px;
   @media only screen and (min-width: 1441px) {
@@ -199,9 +203,9 @@ export const FormTitle = styled.h2`
   font-size: 25px;
   line-height: 30px;
   font-weight: 700;
-  margin-bottom: 27px;
+  margin-bottom: 15px;
   @media only screen and (min-width: 1441px) {
-    margin-bottom: 40px;
+    margin-bottom: 15px;
   }
   @media only screen and (max-width: 1200px) {
     font-size: 22px;

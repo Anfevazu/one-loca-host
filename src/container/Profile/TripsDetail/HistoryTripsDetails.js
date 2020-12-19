@@ -8,7 +8,7 @@ import HistoryTripsList from './HistoryTripsList';
 import {
   AGENT_PROFILE_FAVOURITE,
 } from 'settings/constant';
-import AgentDetailsPage, { NavigationArea } from './AgentDetails.style';
+import AgentDetailsPage, { NavigationArea } from './HistoryTripsDetails.style';
 
 const ProfileNavigation = (props) => {
   const { match, className } = props;

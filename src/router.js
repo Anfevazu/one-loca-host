@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
-import { Route, Redirect, Switch } from 'react-router-dom';
+import React from 'react';
+import { Route,  Switch } from 'react-router-dom';
 import Loadable from 'react-loadable';
-import { AuthContext } from './context/AuthProvider';
 import Layout from './container/Layout/Layout';
 import {
   LOGIN_PAGE,
@@ -10,9 +9,7 @@ import {
   HOME_PAGE,
   LISTING_POSTS_PAGE,
   SINGLE_POST_PAGE,
-  ADD_HOTEL_PAGE,
   MY_TRIPS,
-  AGENT_ACCOUNT_SETTINGS_PAGE,
   PRIVACY_PAGE,
   PRICING_PLAN_PAGE,
   CONTACT_US,
@@ -95,7 +92,7 @@ const routes = [
     component: Loadable({
       loader: () =>
         import(
-          /* webpackChunkName: "AgentDetailsViewPage" */ './container/Agent/AccountDetails/AgentDetailsViewPage'
+          /* webpackChunkName: "AgentDetailsViewPage" */ './container/Profile/TripsDetail/HistoryTripsDetails'
         ),
       loading: Loading,
       modules: ['AgentDetailsViewPage'],
@@ -155,30 +152,16 @@ const routes = [
       modules: ['Failure'],
     }),
   },
+  {
+    path: '/account-settings',
+    component: Loadable({
+      loader: () =>
+        import(/* webpackChunkName: "AgentAccountSettingsPage" */ './container/Profile/AccountSettings/AgentAccountSettingsPage'),
+      loading: Loading,
+      modules: ['AgentAccountSettingsPage'],
+    }),
+  },
 ];
-
-/**
- *
- * Protected Route Component
- *
- */
-const AddListing = Loadable({
-  loader: () =>
-    import(
-      /* webpackChunkName: "AddListing" */ './container/AddListing/AddListing'
-    ),
-  loading: Loading,
-  modules: ['AddListing'],
-});
-
-const AgentAccountSettingsPage = Loadable({
-  loader: () =>
-    import(
-      /* webpackChunkName: "AgentAccountSettingsPage" */ './container/Agent/AccountSettings/AgentAccountSettingsPage'
-    ),
-  loading: Loading,
-  modules: ['AgentAccountSettingsPage'],
-});
 
 /**
  *
@@ -194,24 +177,23 @@ const NotFound = Loadable({
   modules: ['NotFound'],
 });
 
-const ProtectedRoute = ({ component: Component, ...rest }) => {
-  const { loggedIn } = useContext(AuthContext);
-  return (
-    <Route
-      render={(props) =>
-        loggedIn ? <Component {...props} /> : <Redirect to={LOGIN_PAGE} />
-      }
-      {...rest}
-    />
-  );
-};
+// const ProtectedRoute = ({ component: Component, ...rest }) => {
+//   const { loggedIn } = useContext(AuthContext);
+//   return (
+//     <Route
+//       render={(props) =>
+//         loggedIn ? <Component {...props} /> : <Redirect to={LOGIN_PAGE} />
+//       }
+//       {...rest}
+//     />
+//   );
+// };
 
 /**
  *
  * Overall Router Component
  *
  */
-
 const Routes = () => {
   return (
     <Layout>
@@ -219,11 +201,6 @@ const Routes = () => {
         {routes.map(({ path, component, exact = false }) => (
           <Route key={path} path={path} exact={exact} component={component} />
         ))}
-        <ProtectedRoute path={ADD_HOTEL_PAGE} component={AddListing} />
-        <ProtectedRoute
-          path={AGENT_ACCOUNT_SETTINGS_PAGE}
-          component={AgentAccountSettingsPage}
-        />
         <Route component={NotFound} />
       </Switch>
     </Layout>

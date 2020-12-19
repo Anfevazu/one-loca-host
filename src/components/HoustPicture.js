@@ -11,9 +11,8 @@ export default function HoustPicture(props) {
         <AvatarImage>
           <Logo src={picture} />
         </AvatarImage>
-  <div style={{'fontWeight': 'bold'}}>
-
-    {capitalize(name)+' '+capitalize(last_name)}
+    <div style={{'fontWeight': 'bold'}}>
+      {capitalize(name)+' '+capitalize(last_name)}
     </div>
     </div>
   );
